@@ -66,7 +66,7 @@ const Reconocimientos = () => {
         <div className="section-container text-center">
           <h1 className="text-4xl md:text-5xl uppercase font-extrabold mb-6">
             Seguimos
-            <span className="text-primary-light"> Avanzando</span>
+            <span className="text-primary-light text-gradient"> Avanzando</span>
           </h1>
           <p className="text-xl md:text-2xl mb-8 max-w-4xl font-medium mx-auto leading-none">
             Hemos ganado el <span className="font-bold">PREMIO ASIVA 2025</span> en la categoría de <i>Innovación</i>
@@ -168,7 +168,7 @@ const Reconocimientos = () => {
 
 
           <div className="text-center mt-12">
-            <button className="bg-white/10 border border-white/20 hover:bg-white hover:text-primary-dark text-white font-medium px-8 py-3 rounded-full transition-all duration-300">
+            <button className="bg-white/10 border border-white/20 hover:bg-white hover:text-primary-dark text-white font-medium px-8 py-4 rounded-full transition-all duration-300">
               Próximamente más innovaciones
             </button>
           </div>

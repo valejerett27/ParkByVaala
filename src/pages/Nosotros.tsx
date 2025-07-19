@@ -80,9 +80,9 @@ const Nosotros = () => {
         <div className="section-container text-center">
           <h1 className="text-4xl md:text-6xl font-extrabold mb-6">
             ¿CÓMO FUNCIONA <br />
-            <span className="text-primary-light">PARK BY VAALA</span>?
+            <span className="text-primary-light text-gradient">PARK BY VAALA</span>?
           </h1>
-          <p className="text-xl md:text-2xl mb-8 max-w-4xl font-medium mx-auto leading-none">
+          <p className="text-xl text-white max-w-2xl font-medium mx-auto leading-none">
             Opera a través de una <span className="font-bold">plataforma digital</span>, diseñada para facilitar la <span className="font-bold">gestión de estacionamientos</span> de manera eficiente, segura y ordenada.
           </p>
         </div>
