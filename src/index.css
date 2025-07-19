@@ -5,14 +5,34 @@
 
 * {
   font-family: 'Work Sans', sans-serif;
+  line-height: 1;
 }
 
 html {
   scroll-behavior: smooth;
 }
-
+h1,h2,h3,h4,h5,p,span,b,div{
+  line-height: 1 !important;
+}
+.titulo{
+  font-weight: 800 !important;
+}
 body {
   line-height: 1;
+}
+.map-region-path {
+    stroke: #3d97b5;
+    stroke-width: 1.5;
+    transition: fill 0.3s ease-in-out, transform 0.2s ease-in-out;
+    transform-origin: center;
+    cursor: pointer;
+}
+.map-region-path.normal {
+    fill: #374151;
+}
+
+.map-region-path.highlighted {
+    fill: #33CCFF;
 }
 
 @layer components {
@@ -41,7 +61,7 @@ body {
   }
   
   .text-gradient {
-    background: linear-gradient(135deg, #006699 0%, #33CCFF 100%);
+    background: linear-gradient(135deg, #33CCFF 0%, #006699 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;

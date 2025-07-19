@@ -1,39 +1,68 @@
 import React from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { MessageCircle, Instagram, Linkedin } from 'lucide-react';
+import LogoPark from '../assets/img/logo-park.png';
+
 
 const Footer = () => {
   return (
-    <footer className="navy-gradient text-white">
+    <footer className="bg-[#032F41] text-white">
       <div className="section-container py-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Logo y descripción */}
           <div className="space-y-4">
-            <div className="flex items-center">
-              <div className="w-12 h-12 bg-primary-light rounded-full flex items-center justify-center">
-                <span className="text-white font-bold text-xl">P</span>
-              </div>
-              <div className="ml-3">
-                <div className="text-primary-light font-bold text-xl">PARK</div>
-                <div className="text-gray-300 text-sm">by VAALA</div>
-              </div>
-            </div>
+            <Link to="/" className="flex items-center">
+              <img src={LogoPark} alt="Logo Park" className="h-16 w-auto" />
+            </Link>
             <p className="text-gray-300 text-sm leading-relaxed">
-              Solución tecnológica integral para la gestión y control 
-              eficiente de estacionamientos, orientada al cobro 
-              oportuno, la prevención de fraudes y la valorización del 
+              Solución tecnológica integral para la gestión y control
+              eficiente de estacionamientos, orientada al cobro
+              oportuno, la prevención de fraudes y la valorización del
               uso del espacio.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="text-gray-300 hover:text-primary-light transition-colors">
-                <MessageCircle className="h-5 w-5" />
+              {/* WhatsApp */}
+              <a href="#" className="hover:scale-105 hover:text-primary-light transition" aria-label="WhatsApp">
+                <img src="src/assets/svg/whatsapp-logo.svg" alt="WhatsApp logo" className="w-6 h-6 md:w-8 md:h-8 invert" />
               </a>
-              <a href="#" className="text-gray-300 hover:text-primary-light transition-colors">
-                <Instagram className="h-5 w-5" />
+
+              {/* Instagram */}
+              <a
+                href="https://www.instagram.com/tuempresa"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white hover:scale-105 hover:text-primary-light transition-colors"
+              >
+                <svg
+                  className="w-6 h-6 md:w-8 md:h-8 hover:scale-105 hover:text-primary-light"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  viewBox="0 0 24 24"
+                >
+                  <rect
+                    x="2"
+                    y="2"
+                    width="20"
+                    height="20"
+                    rx="5"
+                    ry="5"
+                    stroke="white"
+                    strokeWidth="1.5"
+                  />
+                  <path
+                    d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"
+                    stroke="white"
+                    strokeWidth="1.5"
+                  />
+                  <circle cx="17.5" cy="6.5" r="0.5" fill="white" />
+                </svg>
               </a>
-              <a href="#" className="text-gray-300 hover:text-primary-light transition-colors">
-                <Linkedin className="h-5 w-5" />
+              <a href="#" className="text-gray-300 hover:scale-105 hover:text-primary-light transition-colors">
+                <Linkedin className="w-6 h-6 md:w-8 md:h-8" />
               </a>
             </div>
+
           </div>
 
           {/* Contacto */}

@@ -1,94 +1,59 @@
 import React, { useState } from 'react';
+import MapaChile from './MapaChile';
+import AnimatedBackground from "../components/ui/AnimatedBackground";
+
 
 const MapaInteractivo = () => {
   const [regionSeleccionada, setRegionSeleccionada] = useState('');
 
   const regiones = [
-    { id: 'valparaiso', nombre: 'REGIÓN VALPARAÍSO', activa: true },
-    { id: 'metropolitana', nombre: 'REGIÓN METROPOLITANA', activa: true },
-    { id: 'ohiggins', nombre: 'REGIÓN O\'HIGGINS', activa: true },
-    { id: 'araucania', nombre: 'REGIÓN ARAUCANÍA', activa: true },
+    { id: 'valparaiso', nombre: 'REGIÓN VALPARAÍSO' },
+    { id: 'metropolitana', nombre: 'REGIÓN METROPOLITANA' },
+    { id: 'ohiggins', nombre: "REGIÓN O'HIGGINS" },
+    { id: 'araucania', nombre: 'REGIÓN ARAUCANÍA' },
   ];
 
   const estadisticas = {
     regiones: 5,
-    usuarios: '+500'
+    usuarios: '+500',
   };
 
   return (
-    <section className="navy-gradient text-white py-20">
-      <div className="section-container">
+    <section className=" text-white py-20 relative overflow-hidden">
+      <AnimatedBackground
+        background="#0F172A"
+        gradientColors={["#111827", "#0F172A", "#0B1120"]}
+      />
+
+
+      <div className="section-container relative z-10">
         <div className="text-center mb-12">
-          <p className="text-lg mb-4">
-            Optimiza la gestión de estacionamientos, conectando personas, espacios y 
-            tecnología a lo largo del país.
+          <h2 className="text-3xl md:text-5xl uppercase font-extrabold text-white mb-6">
+            Nuestra <span className="text-gradient px-1">Red Nacional</span>
+          </h2>
+          <p className="text-xl mb-4 font-medium leading-none max-w-3xl mx-auto text-center">
+            Con presencia consolidada en las principales regiones de Chile, Park by Vaala optimiza la gestión de estacionamientos, conectando personas, espacios y tecnología a lo largo del país.
           </p>
+
           <div className="w-20 h-1 bg-primary-light mx-auto"></div>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          {/* Mapa de Chile */}
-          <div className="text-center">
-            <h3 className="text-2xl font-bold mb-8">MAPA INTERACTIVO<br />DE CHILE</h3>
-            
-            {/* SVG simplificado de Chile */}
-            <div className="relative max-w-md mx-auto">
-              <svg viewBox="0 0 200 600" className="w-full h-96">
-                {/* Región de Valparaíso */}
-                <path
-                  d="M80 180 L120 180 L120 220 L80 220 Z"
-                  fill={regionSeleccionada === 'valparaiso' ? '#33CCFF' : '#006699'}
-                  className="cursor-pointer transition-all duration-300 hover:fill-primary-light"
-                  onClick={() => setRegionSeleccionada('valparaiso')}
-                />
-                
-                {/* Región Metropolitana */}
-                <path
-                  d="M80 220 L120 220 L120 260 L80 260 Z"
-                  fill={regionSeleccionada === 'metropolitana' ? '#33CCFF' : '#006699'}
-                  className="cursor-pointer transition-all duration-300 hover:fill-primary-light"
-                  onClick={() => setRegionSeleccionada('metropolitana')}
-                />
-                
-                {/* Región O'Higgins */}
-                <path
-                  d="M80 260 L120 260 L120 300 L80 300 Z"
-                  fill={regionSeleccionada === 'ohiggins' ? '#33CCFF' : '#006699'}
-                  className="cursor-pointer transition-all duration-300 hover:fill-primary-light"
-                  onClick={() => setRegionSeleccionada('ohiggins')}
-                />
-                
-                {/* Región Araucanía */}
-                <path
-                  d="M80 380 L120 380 L120 420 L80 420 Z"
-                  fill={regionSeleccionada === 'araucania' ? '#33CCFF' : '#006699'}
-                  className="cursor-pointer transition-all duration-300 hover:fill-primary-light"
-                  onClick={() => setRegionSeleccionada('araucania')}
-                />
-                
-                {/* Resto del país (inactivo) */}
-                <path
-                  d="M80 50 L120 50 L120 180 L80 180 Z"
-                  fill="#2a3f5f"
-                  className="opacity-50"
-                />
-                <path
-                  d="M80 300 L120 300 L120 380 L80 380 Z"
-                  fill="#2a3f5f"
-                  className="opacity-50"
-                />
-                <path
-                  d="M80 420 L120 420 L120 550 L80 550 Z"
-                  fill="#2a3f5f"
-                  className="opacity-50"
-                />
-              </svg>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+          {/* Mapa real de Chile */}
+          <div className="text-center bg-[#122239] p-3 rounded-xl hidden lg:block">
+            <h3 className="text-2xl font-bold mb-8 leading-none">
+              MAPA INTERACTIVO<br />DE CHILE
+            </h3>
+            <div className="flex justify-center ">
+              <MapaChile
+                selectedRegion={regionSeleccionada}
+                onSelectRegion={setRegionSeleccionada}
+              />
             </div>
           </div>
 
           {/* Panel de información */}
-          <div className="space-y-8">
-            {/* Estadísticas */}
+          <div className="space-y-8 bg-[#122239] p-3 rounded-xl">
             <div className="grid grid-cols-2 gap-6 mb-8">
               <div className="text-center">
                 <div className="text-4xl font-bold text-primary-light mb-2">
@@ -109,12 +74,11 @@ const MapaInteractivo = () => {
               {regiones.map((region) => (
                 <div
                   key={region.id}
-                  className={`p-4 rounded-lg border-2 cursor-pointer transition-all duration-300 ${
-                    regionSeleccionada === region.id
-                      ? 'border-primary-light bg-primary-light bg-opacity-20'
-                      : 'border-gray-600 hover:border-primary-light'
-                  }`}
                   onClick={() => setRegionSeleccionada(region.id)}
+                  className={`p-4 rounded-lg border-2 cursor-pointer transition-all duration-300 ${regionSeleccionada === region.id
+                    ? 'border-primary-light bg-primary-light bg-opacity-20'
+                    : 'border-gray-600 hover:border-primary-light'
+                    }`}
                 >
                   <div className="flex items-center justify-between">
                     <span className="font-medium">{region.nombre}</span>
