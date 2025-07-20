@@ -18,7 +18,7 @@ const HeroSection = () => {
 
       <div className="section-container text-center relative z-10">
         {/* Logo principal */}
-        <div className="mb-8">
+        <div className="mb-8 mt-6">
           <div className="w-32 h-32 flex items-center justify-center mx-auto mb-6">
             <img src={IconPark} alt="Logo Park" className="h-full w-auto" />
           </div>
