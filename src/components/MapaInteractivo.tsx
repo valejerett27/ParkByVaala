@@ -41,14 +41,18 @@ const MapaInteractivo = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           {/* Mapa real de Chile */}
           <div className="text-center bg-[#122239] p-3 rounded-xl hidden lg:block">
-            <h3 className="text-2xl font-bold mb-8 leading-none">
-              MAPA INTERACTIVO<br />DE CHILE
+            <h3 className="bg-white/10 border border-white/20 text-white font-extrabold px-8 py-4 mt-3 rounded-full mx-auto inline-block">
+              MAPA INTERACTIVO
+              <span className="block text-gradient text-center">DE CHILE</span>
             </h3>
-            <div className="flex justify-center ">
-              <MapaChile
-                selectedRegion={regionSeleccionada}
-                onSelectRegion={setRegionSeleccionada}
-              />
+
+            <div className="w-full flex justify-center items-center">
+              <div className="max-w-[300px] w-full">
+                <MapaChile
+                  selectedRegion={regionSeleccionada}
+                  onSelectRegion={setRegionSeleccionada}
+                />
+              </div>
             </div>
           </div>
 

@@ -35,7 +35,7 @@ const QueSomos = () => {
           <p className="text-xl text-[#006699] max-w-3xl font-medium mx-auto leading-none">
             Una <span className="font-bold text-primary-dark">solución tecnológica integral para la gestión y control eficiente</span> de 
             estacionamientos, orientada al <span className="font-bold text-primary-dark">cobro oportuno</span>, la <span className="font-bold text-primary-dark">prevención de fraudes</span> y la 
-            <span className="font-bold text-primary-dark"> valorización del uso del espacio</span>.
+            <span className="font-bold text-primary-dark"> valorización del uso del espacio.</span>
           </p>
           <div className="w-20 h-1 bg-primary-light mx-auto mt-8"></div>
         </div>

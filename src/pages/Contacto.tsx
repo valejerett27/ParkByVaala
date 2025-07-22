@@ -120,7 +120,7 @@ const Contacto = () => {
   };
 
   return (
-    <section className=" bg-gray-50">
+    <section className="bg-gray-50 overflow-x-hidden">
       <motion.section
         initial="hidden"
         whileInView="visible"
@@ -128,21 +128,19 @@ const Contacto = () => {
         variants={fadeInUp}
         transition={{ duration: 0.8 }}
         viewport={{ once: false, amount: 0.3 }}
-        className="bg-gradient-to-br from-[#003249] mb-6 via-[#014d72] to-[#006699] text-white py-20"
-      >
+        className="bg-gradient-to-br from-[#003249] via-[#014d72] to-[#006699] text-white pb-20 pt-36 relative overflow-hidden"      >
         <div className="absolute inset-0 z-0 hidden lg:block">
           <div className="absolute top-20 left-20 w-72 h-72 bg-blue-900 rounded-full opacity-10 blur-3xl animate-pulse"></div>
           <div className="absolute top-20 right-10 w-48 h-48 bg-sky-500 rounded-full opacity-20 blur-2xl animate-pulse"></div>
-          <div className="absolute inset-0 bg-[url('/assets/img/bg/grid-light.svg')] bg-center bg-cover opacity-10"></div>
         </div>
-        <div className="section-container text-center mt-6">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.h1 variants={fadeInUp} className="text-4xl md:text-6xl font-extrabold mb-6">CONTACTO</motion.h1>
-          <motion.h2 variants={fadeInRight} className="text-lg md:text-3xl font-extrabold text-[#33CCFF] mb-6">
+          <motion.h2 variants={fadeInRight} className="text-md md:text-3xl font-extrabold text-[#33CCFF] mb-6">
             ¿LISTO PARA TRANSFORMAR LA GESTIÓN <br /> DE TUS ESTACIONAMIENTOS?
           </motion.h2>
           <motion.p
             variants={fadeInLeft}
-            className="text-sm md:text-2xl mb-8 max-w-2xl font-medium mx-auto leading-none"
+            className="text-sm md:text-2xl mb-8 max-w-2xl font-medium mx-auto leading-tight"
           >
             Contáctanos y descubre cómo <span className="font-bold">Park by Vaala</span> puede revolucionar tu
             negocio con <span className="font-bold">tecnología de vanguardia</span>.
@@ -156,7 +154,7 @@ const Contacto = () => {
         whileInView="visible"
         exit="exit"
         viewport={{ once: false, amount: 0.2 }}
-        className="section-container"
+        className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16"
       >
         <div className="max-w-4xl mx-auto">
           <motion.div variants={fadeInUp} className="text-center mb-12">
@@ -280,7 +278,7 @@ const Contacto = () => {
           <div>
             <img src={IconSupport} alt="Soporte" className="mx-auto w-16 h-16 mb-2" />
             <h5 className="font-bold text-[#006699]">SOPORTE 24/7</h5>
-            <p className="text-sm text-[#006699]">Lun - Vie: 8:00 - 18:00<br />Emergencias: 24/7</p>
+            <p className="text-sm text-[#006699]">Lun - Vie: 9:00 - 18:00<br />Urgencias hasta las 19:00</p>
           </div>
         </div>
       </motion.div>

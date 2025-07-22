@@ -6,10 +6,12 @@ import Inicio from './pages/Inicio';
 import Nosotros from './pages/Nosotros';
 import Reconocimientos from './pages/Reconocimientos';
 import Contacto from './pages/Contacto';
+import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
   return (
     <Router>
+      <ScrollToTop />
       <div className="min-h-screen bg-white font-work-sans leading-none">
         <Header />
         <main>

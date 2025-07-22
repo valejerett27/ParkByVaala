@@ -9,6 +9,8 @@ import IconEspacio from '../assets/icons/ICON_03.png';
 import IconVentas from '../assets/icons/ICON_04.png';
 import IconVerticales from '../assets/icons/ICON_05.png';
 import IconCmunicacion from '../assets/icons/ICON_06.png';
+import { useNavigate } from "react-router-dom";
+
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 40 },
@@ -54,6 +56,7 @@ const Nosotros = () => {
     { icon: IconVerticales, title: 'NUEVAS VERTICALES DE NEGOCIO' },
     { icon: IconCmunicacion, title: 'COMUNICACIÓN DIRECTA CON TUS CLIENTES' }
   ];
+  const navigate = useNavigate();
 
   return (
     <div className="overflow-x-hidden">
@@ -64,7 +67,8 @@ const Nosotros = () => {
         variants={fadeInUp}
         transition={{ duration: 0.8 }}
         viewport={{ once: false }}
-        className="bg-gradient-to-br from-[#003249] via-[#014d72] to-[#006699] text-white py-20"
+        // className="bg-gradient-to-br from-[#003249] via-[#014d72] to-[#006699] text-white mt-[2rem] pt-20 pb-6"
+        className="bg-gradient-to-br from-[#003249] via-[#014d72] to-[#006699] text-white pb-20 pt-36 relative overflow-hidden"
       >
         <div className="absolute inset-0 z-0 hidden lg:block">
           <div className="absolute top-20 left-20 w-72 h-72 bg-blue-900 rounded-full opacity-10 blur-3xl animate-pulse"></div>
@@ -74,7 +78,7 @@ const Nosotros = () => {
         <div className="section-container text-center mt-6">
           <motion.h1 variants={fadeInUp} className="text-4xl md:text-6xl font-extrabold mb-6">
             ¿CÓMO FUNCIONA <br />
-            <span className="text-primary-light text-gradient">PARK BY VAALA</span>?
+            <span className="text-primary-light text-gradient px-1">PARK BY VAALA</span>?
           </motion.h1>
           <motion.p variants={fadeInUp} className="text-xl text-white max-w-2xl font-medium mx-auto leading-none">
             Opera a través de una <span className="font-bold">plataforma digital</span>, diseñada para facilitar la <span className="font-bold">gestión de estacionamientos</span> de manera eficiente, segura y ordenada.
@@ -92,8 +96,8 @@ const Nosotros = () => {
       >
         <div className="section-container">
           <motion.div variants={fadeInUp} className="text-center mb-16 font-extrabold">
-            <h2 className="block titulo text-4xl text-[#006699] font-extrabold py-3">SU FUNCIONAMIENTO SE BASA EN</h2>
-            <span className="font-bold text-4xl py-3 px-6 my-3 text-[#FFFFFF] tracking-wide bg-gradient-to-r from-[#33CCFF] to-[#209ACE] font-extrabold rounded-2xl inline-block">
+            <h2 className="block titulo text-2xl lg:text-4xl text-[#006699] font-extrabold py-3">SU FUNCIONAMIENTO SE BASA EN</h2>
+            <span className="font-bold text-2xl lg:text-4xl py-3 px-6 my-3 text-[#FFFFFF] tracking-wide bg-gradient-to-r from-[#33CCFF] to-[#209ACE] font-extrabold rounded-2xl inline-block">
               TRES PROCESOS CLAVE
             </span>
             <span className="block py-3 font-medium text-lg text-[#006699]">
@@ -102,7 +106,7 @@ const Nosotros = () => {
             <div className="w-20 h-1 bg-[#0EA5E9] mx-auto mt-6"></div>
           </motion.div>
 
-          <motion.div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full overflow-hidden">
+          <motion.div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full pt-6 pb-12 px-6 overflow-hidden">
             {funcionalidades.map((item, index) => (
               <motion.div
                 key={index}
@@ -132,7 +136,7 @@ const Nosotros = () => {
         exit="exit"
         variants={containerStagger}
         viewport={{ once: false }}
-        className="py-20 bg-white"
+        className="py-20 bg-gray-50"
       >
         <div className="section-container">
           <motion.div variants={fadeInUp} className="text-center mb-16">
@@ -145,11 +149,11 @@ const Nosotros = () => {
             </p>
           </motion.div>
 
-          <motion.div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full overflow-hidden">
+          <motion.div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 py-12 px-6 w-full overflow-hidden">
             {beneficios.map((beneficio, index) => (
               <motion.div
                 key={index}
-                className="bg-gray-50 p-6 rounded-lg card-hover text-center"
+                className="bg-white p-6 rounded-lg card-hover text-center"
                 variants={fadeInUp}
                 transition={{ duration: 0.5 }}
               >
@@ -161,8 +165,11 @@ const Nosotros = () => {
             ))}
           </motion.div>
 
-          <motion.div variants={fadeInUp} className="text-center mt-12">
-            <button className="text-white font-semibold py-6 px-8 rounded-full border border-white/20 shadow-inner bg-[linear-gradient(135deg,_#23739c_0%,_#3f8fb6_50%,_#1a5f88_100%)] hover:bg-[linear-gradient(135deg,_#1d5a7e_0%,_#347699_50%,_#144d6c_100%)] transition-colors duration-600">
+          <motion.div variants={fadeInUp} className="text-center">
+            <button
+              onClick={() => navigate("/contacto")}
+              className="text-white font-semibold py-6 px-8 rounded-full border border-white/20 shadow-inner bg-[linear-gradient(135deg,_#23739c_0%,_#3f8fb6_50%,_#1a5f88_100%)] hover:bg-[linear-gradient(135deg,_#1d5a7e_0%,_#347699_50%,_#144d6c_100%)] transition-colors duration-600"
+            >
               SÚMATE AL SOFTWARE MÁS COMPLETO →
             </button>
           </motion.div>

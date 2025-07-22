@@ -9,7 +9,7 @@ interface Props {
 const MapaChile: React.FC<Props> = ({ onSelectRegion, selectedRegion }) => {
     return (
         <svg id="chileMap" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 807.47 896.96"
-            className=" h-auto">
+            className="mx-auto w-[370px] h-auto">
             <defs></defs>
             <g id="chile-regions-group">
                 <path id="path-arica-parinacota" className="map-region-path normal"

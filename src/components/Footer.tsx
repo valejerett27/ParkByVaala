@@ -2,6 +2,7 @@ import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { MessageCircle, Instagram, Linkedin } from 'lucide-react';
 import LogoPark from '../assets/img/logo-park.png';
+import WhatsappIcon from '../assets/svg/whatsapp-logo.svg';
 
 
 const Footer = () => {
@@ -23,7 +24,7 @@ const Footer = () => {
             <div className="flex space-x-4">
               {/* WhatsApp */}
               <a href="#" className="hover:scale-105 hover:text-primary-light transition" aria-label="WhatsApp">
-                <img src="src/assets/svg/whatsapp-logo.svg" alt="WhatsApp logo" className="w-6 h-6 md:w-8 md:h-8 invert" />
+                <img src={WhatsappIcon} alt="WhatsApp logo" className="w-6 h-6 md:w-8 md:h-8 invert" />
               </a>
 
               {/* Instagram */}

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import IconReconocimiento from '../assets/icons/RECONOCIMIENTOS-01.png';
 import IconInnovacionAplicada from '../assets/icons/RECONOCIMIENTOS-INNOVACION.png';
 import IconEficiencia from '../assets/icons/RECONOCIMIENTOS-IMPACTO.png';
@@ -8,6 +8,7 @@ import IconSostenibilidad from '../assets/icons/RECONOCIMIENTO-SOSTENIBILIDAD.pn
 import IconExpansion from '../assets/icons/RECONOCIMIENTO-EXPANSION.png';
 import ImgPremios from '../assets/bg/Premios.png';
 import { motion } from 'framer-motion';
+import confetti from 'canvas-confetti';
 
 const significados = [
   {
@@ -77,7 +78,82 @@ const containerStagger = {
   },
 };
 
+// Función personalizada para el confeti
+const fireConfetti = () => {
+  const count = 200;
+  const defaults = {
+    origin: { y: 0.7 },
+    spread: 90,
+    ticks: 100,
+    zIndex: 10000,
+  };
+
+  // Reemplaza la función fireConfetti con esta versión
+  const fireConfetti = () => {
+    const count = 200;
+    const defaults = {
+      origin: { y: 0.7 },
+      spread: 90,
+      ticks: 100,
+      zIndex: 10000,
+    };
+
+    function fire(particleRatio: number, opts: {
+      spread?: number;
+      startVelocity?: number;
+      decay?: number;
+      scalar?: number;
+      particleCount?: number;
+      // Agrega otras opciones que necesites
+    }) {
+      confetti({
+        ...defaults,
+        ...opts,
+        particleCount: Math.floor(count * particleRatio),
+      });
+    }
+
+    fire(0.25, {
+      spread: 26,
+      startVelocity: 55,
+    });
+    fire(0.2, {
+      spread: 60,
+    });
+    fire(0.35, {
+      spread: 100,
+      decay: 0.91,
+      scalar: 0.8,
+    });
+    fire(0.1, {
+      spread: 120,
+      startVelocity: 25,
+      decay: 0.92,
+      scalar: 1.2,
+    });
+    fire(0.1, {
+      spread: 120,
+      startVelocity: 45,
+    });
+  };
+};
+
 const Reconocimientos = () => {
+  // Disparar confeti cuando el componente se monta
+  useEffect(() => {
+    // Pequeño retraso para que coincida con la animación de entrada
+    const timer = setTimeout(() => {
+      fireConfetti();
+    }, 1500);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  // Función para manejar el clic en el botón de confeti
+  const handleConfettiClick = () => {
+    fireConfetti();
+  };
+
   return (
     <div className="overflow-hidden max-w-full">
       {/* Hero Section */}
@@ -88,8 +164,10 @@ const Reconocimientos = () => {
         variants={fadeInUp}
         transition={{ duration: 0.8 }}
         viewport={{ once: false }}
-        className="bg-gradient-to-br from-[#003249] via-[#014d72] to-[#006699] text-white py-20"
+        className="bg-gradient-to-br from-[#003249] via-[#014d72] to-[#006699] text-white py-20 relative overflow-hidden"
       >
+        {/* Canvas para el confeti (se crea automáticamente) */}
+
         <motion.div
           variants={fadeInUp}
           className="w-32 h-32 flex items-center justify-center mx-auto my-6"
@@ -103,7 +181,7 @@ const Reconocimientos = () => {
           <div className="absolute inset-0 bg-[url('/assets/img/bg/grid-light.svg')] bg-center bg-cover opacity-10"></div>
         </div>
 
-        <div className="section-container text-center">
+        <div className="section-container text-center relative z-10">
           <motion.h1
             variants={fadeInUp}
             className="text-4xl md:text-5xl uppercase font-extrabold mb-6"
@@ -116,6 +194,16 @@ const Reconocimientos = () => {
           >
             Hemos ganado el <span className="font-bold">PREMIO ASIVA 2025</span> en la categoría de <i>Innovación</i>
           </motion.p>
+
+          {/* Botón para activar confeti manualmente */}
+          {/* <motion.button
+            onClick={handleConfettiClick}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="mt-6 bg-white/20 hover:bg-white/30 border border-white/30 text-white font-medium px-6 py-3 rounded-full transition-all duration-300 backdrop-blur-sm"
+          >
+            ¡Celebrar con confeti!
+          </motion.button> */}
         </div>
       </motion.section>
 
@@ -244,7 +332,10 @@ const Reconocimientos = () => {
           </div>
 
           <motion.div variants={fadeInUp} className="text-center mt-12">
-            <button className="bg-white/10 border border-white/20 hover:bg-white hover:text-primary-dark text-white font-medium px-8 py-4 rounded-full transition-all duration-300">
+            <button
+              onClick={handleConfettiClick}
+              className="bg-white/10 border border-white/20 hover:bg-white hover:text-primary-dark text-white font-medium px-8 py-4 rounded-full transition-all duration-300"
+            >
               Próximamente más innovaciones
             </button>
           </motion.div>
