@@ -23,13 +23,13 @@ const Footer = () => {
             </p>
             <div className="flex space-x-4">
               {/* WhatsApp */}
-              <a href="#" className="hover:scale-105 hover:text-primary-light transition" aria-label="WhatsApp">
+              <a href="https://wa.me/56923740953" target="_blank" className="hover:scale-105 hover:text-primary-light transition" aria-label="WhatsApp">
                 <img src={WhatsappIcon} alt="WhatsApp logo" className="w-6 h-6 md:w-8 md:h-8 invert" />
               </a>
 
               {/* Instagram */}
               <a
-                href="https://www.instagram.com/tuempresa"
+                href="https://www.instagram.com/parkbyvaala?igsh=eXE1ZzBxdnNiOHZn"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-white hover:scale-105 hover:text-primary-light transition-colors"
@@ -59,7 +59,7 @@ const Footer = () => {
                   <circle cx="17.5" cy="6.5" r="0.5" fill="white" />
                 </svg>
               </a>
-              <a href="#" className="text-gray-300 hover:scale-105 hover:text-primary-light transition-colors">
+              <a href="https://www.linkedin.com/company/park-by-vaala/about/" target="_blank" className="text-gray-300 hover:scale-105 hover:text-primary-light transition-colors">
                 <Linkedin className="w-6 h-6 md:w-8 md:h-8" />
               </a>
             </div>

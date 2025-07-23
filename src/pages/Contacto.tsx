@@ -154,7 +154,7 @@ const Contacto = () => {
         whileInView="visible"
         exit="exit"
         viewport={{ once: false, amount: 0.2 }}
-        className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16"
+        className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-16"
       >
         <div className="max-w-4xl mx-auto">
           <motion.div variants={fadeInUp} className="text-center mb-12">
@@ -277,7 +277,7 @@ const Contacto = () => {
           </div>
           <div>
             <img src={IconSupport} alt="Soporte" className="mx-auto w-16 h-16 mb-2" />
-            <h5 className="font-bold text-[#006699]">SOPORTE 24/7</h5>
+            <h5 className="font-bold text-[#006699]">SOPORTE</h5>
             <p className="text-sm text-[#006699]">Lun - Vie: 9:00 - 18:00<br />Urgencias hasta las 19:00</p>
           </div>
         </div>

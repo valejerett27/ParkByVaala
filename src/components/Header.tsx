@@ -60,7 +60,7 @@ const Header = () => {
       {/* Mobile Navigation */}
       {isMenuOpen && (
         <div className="md:hidden bg-white border-t h-screen py-4 px-4">
-          <nav className="flex flex-col space-y-4">
+          <nav className="flex flex-col space-y-4 text-center">
             {navigation.map((item) => (
               <Link
                 key={item.name}

@@ -25,16 +25,17 @@ const QueSomos = () => {
   };
 
   return (
-    <section className="py-20 bg-white">
+    <section className="py-10 bg-white">
       <div className="section-container">
         {/* Título */}
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-5xl font-extrabold text-[#022E46] mb-6">
-            ¿QUÉ ES <span className="text-gradient px-1">PARK BY VAALA</span>?
+            ¿QUÉ ES <span className="text-gradient lg:px-1">PARK BY VAALA</span>?
           </h2>
+
           <p className="text-xl text-[#006699] max-w-3xl font-medium mx-auto leading-none">
-            Una <span className="font-bold text-primary-dark">solución tecnológica integral para la gestión y control eficiente</span> de 
-            estacionamientos, orientada al <span className="font-bold text-primary-dark">cobro oportuno</span>, la <span className="font-bold text-primary-dark">prevención de fraudes</span> y la 
+            Una <span className="font-bold text-primary-dark">solución tecnológica integral para la gestión y control eficiente</span> de
+            estacionamientos, orientada al <span className="font-bold text-primary-dark">cobro oportuno</span>, la <span className="font-bold text-primary-dark">prevención de fraudes</span> y la
             <span className="font-bold text-primary-dark"> valorización del uso del espacio.</span>
           </p>
           <div className="w-20 h-1 bg-primary-light mx-auto mt-8"></div>

@@ -92,10 +92,10 @@ const Nosotros = () => {
         exit="exit"
         variants={containerStagger}
         viewport={{ once: false }}
-        className="py-20 bg-gray-50"
+        className="py-10 bg-gray-50"
       >
         <div className="section-container">
-          <motion.div variants={fadeInUp} className="text-center mb-16 font-extrabold">
+          <motion.div variants={fadeInUp} className="text-center font-extrabold">
             <h2 className="block titulo text-2xl lg:text-4xl text-[#006699] font-extrabold py-3">SU FUNCIONAMIENTO SE BASA EN</h2>
             <span className="font-bold text-2xl lg:text-4xl py-3 px-6 my-3 text-[#FFFFFF] tracking-wide bg-gradient-to-r from-[#33CCFF] to-[#209ACE] font-extrabold rounded-2xl inline-block">
               TRES PROCESOS CLAVE
@@ -136,10 +136,10 @@ const Nosotros = () => {
         exit="exit"
         variants={containerStagger}
         viewport={{ once: false }}
-        className="py-20 bg-gray-50"
+        className="pb-10 bg-gray-50"
       >
         <div className="section-container">
-          <motion.div variants={fadeInUp} className="text-center mb-16">
+          <motion.div variants={fadeInUp} className="text-center">
             <h2 className="text-3xl md:text-4xl font-extrabold text-[#022E46] mb-4">
               ¿QUÉ <span className="text-gradient">OBTENDRÁS CON NOSOTROS</span>?
             </h2>
@@ -153,7 +153,7 @@ const Nosotros = () => {
             {beneficios.map((beneficio, index) => (
               <motion.div
                 key={index}
-                className="bg-white p-6 rounded-lg card-hover text-center"
+                className="bg-white p-8 rounded-lg shadow-lg card-hover border border-sky-100 text-center"
                 variants={fadeInUp}
                 transition={{ duration: 0.5 }}
               >
