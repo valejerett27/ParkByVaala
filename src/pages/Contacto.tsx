@@ -120,7 +120,7 @@ const Contacto = () => {
   };
 
   return (
-    <section className="bg-gray-50 overflow-x-hidden">
+    <section className="bg-gray-50">
       <motion.section
         initial="hidden"
         whileInView="visible"
