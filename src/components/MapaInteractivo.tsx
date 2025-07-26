@@ -7,14 +7,17 @@ const MapaInteractivo = () => {
   const [regionSeleccionada, setRegionSeleccionada] = useState('');
 
   const regiones = [
+    { id: 'coquimbo', nombre: 'REGIÓN COQUIMBO' },
     { id: 'valparaiso', nombre: 'REGIÓN VALPARAÍSO' },
     { id: 'metropolitana', nombre: 'REGIÓN METROPOLITANA' },
     { id: 'ohiggins', nombre: "REGIÓN O'HIGGINS" },
+    { id: 'maule', nombre: 'REGIÓN MAULE' },
     { id: 'araucania', nombre: 'REGIÓN ARAUCANÍA' },
+    { id: 'losLagos', nombre: 'REGIÓN LOS LAGOS' },
   ];
 
   const estadisticas = {
-    regiones: 5,
+    regiones: 7,
     usuarios: '+500',
   };
 

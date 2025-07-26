@@ -264,23 +264,24 @@ const Contacto = () => {
       <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.3 }} viewport={{ once: true }} className="mt-10 bg-gray-100 text-center text-[#022E46] rounded-xl px-8 py-10">
         <h4 className="text-xl text-[#006699] font-bold mb-2">INFORMACIÓN DE CONTACTO DIRECTO</h4>
         <p className="text-[#006699] mb-8">También puedes contactarnos directamente a través de estos canales</p>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div>
-            <img src={IconMail} alt="Correo" className="mx-auto  w-16 h-16 mb-2" />
-            <h5 className="font-bold text-[#006699]">EMAIL CORPORATIVO</h5>
-            <p className="text-sm text-[#006699]">contacto@parkbyvaala.cl</p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-xl mx-auto">
+            <div className="flex flex-col items-center">
+              <img src={IconMail} alt="Correo" className="w-16 h-16 mb-2" />
+              <h5 className="font-bold text-[#006699]">EMAIL CORPORATIVO</h5>
+              <p className="text-sm text-[#006699]">contacto@parkbyvaala.cl</p>
+            </div>
+
+            <div className="flex flex-col items-center">
+              <img src={IconOffice} alt="Oficina" className="w-16 h-16 mb-2" />
+              <h5 className="font-bold text-[#006699]">OFICINAS</h5>
+              <p className="text-sm text-[#006699]">Viña del Mar, Chile</p>
+            </div>
           </div>
-          <div>
-            <img src={IconOffice} alt="Oficina" className="mx-auto w-16 h-16 mb-2" />
-            <h5 className="font-bold text-[#006699]">OFICINAS</h5>
-            <p className="text-sm text-[#006699]">Viña del Mar, Chile</p>
-          </div>
-          <div>
+          {/* <div>
             <img src={IconSupport} alt="Soporte" className="mx-auto w-16 h-16 mb-2" />
             <h5 className="font-bold text-[#006699]">SOPORTE</h5>
             <p className="text-sm text-[#006699]">Lun - Vie: 9:00 - 18:00<br />Urgencias hasta las 19:00</p>
-          </div>
-        </div>
+          </div> */}
       </motion.div>
 
 
