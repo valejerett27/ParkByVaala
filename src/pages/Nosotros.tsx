@@ -103,7 +103,6 @@ const Nosotros = () => {
             <span className="block py-3 font-medium text-lg text-[#006699]">
               Que permiten <span className="font-semibold">controlar y optimizar los estacionamientos</span> de manera efectiva.
             </span>
-            <div className="w-20 h-1 bg-[#0EA5E9] mx-auto mt-6"></div>
           </motion.div>
 
           <motion.div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full pt-6 pb-12 px-6 overflow-hidden">

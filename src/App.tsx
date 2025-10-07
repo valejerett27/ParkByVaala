@@ -13,7 +13,7 @@ function App() {
   return (
     <Router>
       <ScrollToTop />
-      <div className="min-h-screen bg-white font-work-sans leading-none">
+      <div className="min-h-screen bg-white font-sans leading-none">
         <Header />
         <main>
           <Routes>

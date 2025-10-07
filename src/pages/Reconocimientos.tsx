@@ -8,7 +8,7 @@ import IconSostenibilidad from '../assets/icons/RECONOCIMIENTO-SOSTENIBILIDAD.pn
 import IconExpansion from '../assets/icons/RECONOCIMIENTO-EXPANSION.png';
 import ImgPremios from '../assets/bg/Premios.png';
 import { motion } from 'framer-motion';
-import confetti from 'canvas-confetti';
+// import confetti from 'canvas-confetti';
 
 const significados = [
   {
@@ -80,62 +80,62 @@ const containerStagger = {
 
 // Función personalizada para el confeti
 const fireConfetti = () => {
-  const count = 200;
-  const defaults = {
-    origin: { y: 0.7 },
-    spread: 90,
-    ticks: 100,
-    zIndex: 10000,
-  };
+  // const count = 200;
+  // const defaults = {
+  //   origin: { y: 0.7 },
+  //   spread: 90,
+  //   ticks: 100,
+  //   zIndex: 10000,
+  // };
 
   // Reemplaza la función fireConfetti con esta versión
-  const fireConfetti = () => {
-    const count = 200;
-    const defaults = {
-      origin: { y: 0.7 },
-      spread: 90,
-      ticks: 100,
-      zIndex: 10000,
-    };
+  // const fireConfetti = () => {
+  //   const count = 200;
+  //   const defaults = {
+  //     origin: { y: 0.7 },
+  //     spread: 90,
+  //     ticks: 100,
+  //     zIndex: 10000,
+  //   };
 
-    function fire(particleRatio: number, opts: {
-      spread?: number;
-      startVelocity?: number;
-      decay?: number;
-      scalar?: number;
-      particleCount?: number;
-      // Agrega otras opciones que necesites
-    }) {
-      confetti({
-        ...defaults,
-        ...opts,
-        particleCount: Math.floor(count * particleRatio),
-      });
-    }
+  //   function fire(particleRatio: number, opts: {
+  //     spread?: number;
+  //     startVelocity?: number;
+  //     decay?: number;
+  //     scalar?: number;
+  //     particleCount?: number;
+  //     // Agrega otras opciones que necesites
+  //   }) {
+  //     confetti({
+  //       ...defaults,
+  //       ...opts,
+  //       particleCount: Math.floor(count * particleRatio),
+  //     });
+  //   }
 
-    fire(0.25, {
-      spread: 26,
-      startVelocity: 55,
-    });
-    fire(0.2, {
-      spread: 60,
-    });
-    fire(0.35, {
-      spread: 100,
-      decay: 0.91,
-      scalar: 0.8,
-    });
-    fire(0.1, {
-      spread: 120,
-      startVelocity: 25,
-      decay: 0.92,
-      scalar: 1.2,
-    });
-    fire(0.1, {
-      spread: 120,
-      startVelocity: 45,
-    });
-  };
+  //   fire(0.25, {
+  //     spread: 26,
+  //     startVelocity: 55,
+  //   });
+  //   fire(0.2, {
+  //     spread: 60,
+  //   });
+  //   fire(0.35, {
+  //     spread: 100,
+  //     decay: 0.91,
+  //     scalar: 0.8,
+  //   });
+  //   fire(0.1, {
+  //     spread: 120,
+  //     startVelocity: 25,
+  //     decay: 0.92,
+  //     scalar: 1.2,
+  //   });
+  //   fire(0.1, {
+  //     spread: 120,
+  //     startVelocity: 45,
+  //   });
+  // };
 };
 
 const Reconocimientos = () => {

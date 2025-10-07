@@ -33,7 +33,7 @@ const HeroSection = () => {
 
         {/* Subtítulo */}
         <p className="text-xl md:text-2xl mb-12 animate-slide-up">
-          Ofrecemos un <span className="font-semibold">sistema de gestión de estacionamientos flexible y modular.</span> Puedes elegir <span className="font-semibold">uno, dos o todos nuestros servicios, </span> según lo que mejor se adapte a tu operación.
+          En Park, nos mueve <span className="font-semibold">la innovación, la eficiencia y el diseño de herramientas</span> que hacen <span className="font-semibold"> más simple, seguro y ordenado</span> el uso de los espacios.
         </p>
       </div>
     </section>

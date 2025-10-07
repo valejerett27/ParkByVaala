@@ -70,13 +70,13 @@ const Header = () => {
               <Link
                 key={item.name}
                 to={item.href}
-                className={`${linkBaseColor} uppercase px-3 py-2 text-sm font-medium transition-colors duration-200 relative group ${
+                className={`${linkBaseColor} uppercase px-3 py-2 text-sm font-bold transition-colors duration-200 relative group ${
                   isActive(item.href) ? "text-cyan-400" : "hover:text-cyan-400"
                 } focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#33CCFF] focus-visible:rounded`}
               >
                 {item.name}
                 <span
-                  className={`absolute bottom-0 left-0 h-0.5 bg-cyan-400 transition-all duration-300 ${
+                  className={`absolute bottom-0 left-0 h-0.5 font-bold bg-cyan-400 transition-all duration-300 ${
                     isActive(item.href) ? "w-full" : "w-0 group-hover:w-full"
                   }`}
                 />
