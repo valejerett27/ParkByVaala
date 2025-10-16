@@ -123,7 +123,7 @@ const Contacto = () => {
     <section className="bg-gray-50">
       <motion.section
         initial="hidden"
-        whileInView="visible"
+        animate="visible"
         exit="exit"
         variants={fadeInUp}
         transition={{ duration: 0.8 }}
