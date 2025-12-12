@@ -25,9 +25,8 @@ const Header = () => {
     () => [
       { name: "INICIO", href: "/" },
       // { name: "NOSOTROS", href: "/nosotros" },
-      { name: "UNIDADES DE NEGOCIO", href: "/unidades-de-negocio" },
-      { name: "RECONOCIMIENTOS", href: "/reconocimientos" },
-      // { name: "CONTACTO", href: "/contacto" },
+      { name: "¿Qué es MPark?", href: "/#mipark" },
+      { name: "Beneficios", href: "/#beneficios" },
     ],
     []
   );
@@ -84,10 +83,10 @@ const Header = () => {
             ))}
 
             <Link
-              to="/contacto"
+              to="/descarga"
               className="bg-gradient-to-r from-[#006699] to-[#33CCFF] text-white uppercase px-6 py-2 rounded-full hover:shadow-lg hover:scale-105 transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#33CCFF]"
             >
-              Contáctanos
+              Descarga
             </Link>
           </div>
 
@@ -127,10 +126,10 @@ const Header = () => {
               ))}
 
               <Link
-                to="/contacto"
+                to="/descarga"
                 className="block mt-4 bg-gradient-to-r from-[#33CCFF] to-[#006699] text-white px-6 py-3 rounded-full hover:shadow-lg transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#33CCFF]"
               >
-                Contáctanos
+                Descarga
               </Link>
             </div>
           </div>
