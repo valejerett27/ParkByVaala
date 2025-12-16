@@ -1,10 +1,10 @@
 import React from 'react';
 // Asegúrate de que la ruta sea correcta según tu estructura de carpetas
-import Mapa from '../assets/img/Mapa_MiPark.png'; 
+import Mapa from '../assets/img/Mapa_MiPark-grueso.png';
 
 const ZonaMiPark = () => {
     return (
-        <section className="py-12 md:py-16 bg-white">
+        <section className="py-12 md:py-16 bg-white" id="zona-mipark">
             <div className="container mx-auto px-4">
 
                 {/* 1. TÍTULO SUPERIOR */}

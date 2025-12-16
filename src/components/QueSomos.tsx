@@ -9,7 +9,7 @@ const fadeInUp = {
 };
 const QueSomos = () => {
   return (
-    <section className="py-12 md:py-20 bg-white">
+    <section className="py-12 md:py-20 bg-white" id="mipark">
       <div className="container mx-auto px-4">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-10 lg:gap-16">
 
@@ -36,14 +36,14 @@ const QueSomos = () => {
 
               <motion.h1 variants={fadeInUp} className="text-4xl md:text-6xl text-[#006699] uppercase  max-w-2xl font-extrabold mb-6">
                 ¿Qué es
-                <span className="text-primary-light text-gradient px-1">MiPark</span>
+                <span className="text-primary-light text-gradient px-1">MiPark?</span>
               </motion.h1>
             </div>
 
             {/* Descripción */}
             <div className="space-y-6">
               <p className="text-lg md:text-xl text-gray-700 leading-relaxed">
-                <span className="font-bold">MIPark</span> —también conocida como la “app de pago” de Park by Vaalu— es una aplicación que permite a los usuarios pagar su estacionamiento en las zonas habilitadas sin depender de operadores.
+                <span className="font-bold">MIPark</span> —también conocida como la “app de pago” de Park by Vaala— es una aplicación que permite a los usuarios pagar su estacionamiento en las zonas habilitadas sin depender de operadores.
               </p>
 
               <p className="text-lg md:text-xl text-gray-700 leading-relaxed">

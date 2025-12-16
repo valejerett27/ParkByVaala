@@ -14,36 +14,33 @@ const fadeInUp = {
 
 const HeroSection = () => {
   return (
-    // CAMBIO 1: Quitamos 'justify-end' y usamos 'justify-center'. 
-    // Esto evita que todo se pegue abajo en móviles.
     <section className="relative w-full min-h-screen bg-white overflow-hidden flex flex-col justify-center">
       
-      {/* Fondo de Ondas (Absolute Bottom) */}
-      <div className="absolute bottom-0 left-0 w-full z-0">
+      {/* ------------------------------------------------------
+         1. IMAGEN DE FONDO (ONDAS)
+         - Visible en Móvil.
+         - OCULTA en Escritorio (lg:hidden).
+      ------------------------------------------------------- */}
+      <div className="absolute top-4 mt-16 left-0 w-full z-0 lg:hidden">
         <img 
           src={fondoCeleste} 
           alt="Fondo Ondas" 
-          className="w-full h-auto max-h-[50vh] md:max-h-[100vh] object-cover object-top" 
+          className="w-full h-auto max-h-[50vh] object-cover object-top" 
         />
       </div>
 
-      {/* CAMBIO 2: Aumentamos el padding-top (pt-24) en móvil.
-         Como tu Header es 'fixed', necesitamos bajar el contenido para que no quede tapado arriba.
-      */}
       <div className="container mx-auto px-4 relative z-10 pt-24 pb-12 md:pt-0 md:pb-0">
         
         {/* BLOQUE SUPERIOR (GRID 2 COLUMNAS) */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center mb-8">
           
           {/* COLUMNA IZQUIERDA: CELULAR */}
-          {/* Agregamos 'order-last lg:order-first' si quisieras que en móvil el texto vaya primero, 
-              pero según tu diseño el celular va arriba, así que lo dejamos normal. */}
           <div className="flex justify-center lg:justify-end">
             <motion.div 
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
-              className="w-full max-w-[240px] md:max-w-[300px] lg:max-w-[350px]"
+              className="w-full max-w-[350px] md:max-w-[450px] lg:max-w-[600px]"
             >
               <img
                 src={Celular}
