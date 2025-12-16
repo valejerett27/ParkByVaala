@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
 import YouTube, { YouTubePlayer } from 'react-youtube'; 
-import { QrCode, Volume2, VolumeX, Send } from 'lucide-react'; // Agregué el icono Send
+import { QrCode, Volume2, VolumeX } from 'lucide-react'; // Agregué el icono Send
 import { motion } from 'framer-motion';
 import emailjs from '@emailjs/browser'; // Importamos EmailJS
 
@@ -209,10 +209,10 @@ const DescargaApp = () => {
               </div>
             </div>
 
-            <div className="text-center leading-tight mb-2">
+            {/* <div className="text-center leading-tight mb-2">
               <p className="text-gray-500 font-medium text-sm">Lanzamiento oficial</p>
               <p className="text-gray-600 font-bold text-lg">próximamente</p>
-            </div>
+            </div> */}
 
             {/* BOTONES STORES */}
             <div className="w-full mt-8 mb-16">
@@ -230,11 +230,11 @@ const DescargaApp = () => {
                 FORMULARIO NEWSLETTER (Funcional con EmailJS)
                 ============================================================ */}
             <div className="w-full max-w-lg mx-auto mt-4">
-              <h3 className="text-2xl md:text-3xl font-extrabold text-[#006699] mb-3">
+              {/* <h3 className="text-2xl md:text-3xl font-extrabold text-[#006699] mb-3">
                 ¡No te quedes fuera!
-              </h3>
+              </h3> */}
               <p className="text-gray-500 text-sm md:text-[15px] font-medium mb-8 leading-relaxed max-w-sm mx-auto md:max-w-none">
-                Ingresa tu correo para ser notificado del lanzamiento y obtener acceso a sorpresas especiales.
+                Ingresa tu correo para obtener información y acceso a sorpresas especiales.
               </p>
 
               <form ref={formRef} onSubmit={handleSubmit} className="flex flex-col items-center w-full">
@@ -250,7 +250,7 @@ const DescargaApp = () => {
                         ? 'border-red-400 focus:border-red-400 focus:ring-red-100' 
                         : 'border-gray-200 focus:border-[#33CCFF] focus:ring-blue-50'
                       }`}
-                    placeholder="dmorales@vaalagroup.cl" 
+                    placeholder="ejemplo@email.com" 
                   />
                   {/* Mensaje de error flotante debajo del input */}
                   {errorMessage && (

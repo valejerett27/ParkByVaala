@@ -1,30 +1,33 @@
 import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { MessageCircle, Instagram, Linkedin } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { Linkedin } from 'lucide-react';
 import LogoPark from '../assets/img/logo-park.png';
 import WhatsappIcon from '../assets/svg/whatsapp-logo.svg';
-
 
 const Footer = () => {
   return (
     <footer className="bg-[#032F41] text-white">
-      <div className="section-container py-12">
+      {/* Agregué 'container mx-auto px-4' por si 'section-container' no tiene esos estilos globales */}
+      <div className="section-container container mx-auto px-4 py-12">
+        
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Logo y descripción */}
           <div className="space-y-4">
             <Link to="/" className="flex items-center">
               <img src={LogoPark} alt="Logo Park" className="h-16 w-auto" />
             </Link>
-            <p className="text-gray-300 text-sm leading-relaxed">
+            <p className="text-gray-300 text-sm leading-relaxed max-w-sm">
               Solución tecnológica integral para la gestión y control
               eficiente de estacionamientos, orientada al cobro
               oportuno, la prevención de fraudes y la valorización del
               uso del espacio.
             </p>
-            <div className="flex space-x-4">
+            
+            {/* Redes Sociales */}
+            <div className="flex space-x-4 pt-2">
               {/* WhatsApp */}
-              <a href="https://wa.me/56923740953" target="_blank" className="hover:scale-105 hover:text-primary-light transition" aria-label="WhatsApp">
-                <img src={WhatsappIcon} alt="WhatsApp logo" className="w-6 h-6 md:w-8 md:h-8 invert" />
+              <a href="https://wa.me/56923740953" target="_blank" rel="noreferrer" className="hover:scale-110 transition-transform duration-200" aria-label="WhatsApp">
+                <img src={WhatsappIcon} alt="WhatsApp logo" className="w-6 h-6 md:w-8 md:h-8 invert opacity-80 hover:opacity-100 transition-opacity" />
               </a>
 
               {/* Instagram */}
@@ -32,52 +35,44 @@ const Footer = () => {
                 href="https://www.instagram.com/parkbyvaala?igsh=eXE1ZzBxdnNiOHZn"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-white hover:scale-105 hover:text-primary-light transition-colors"
+                className="text-gray-300 hover:text-[#33CCFF] hover:scale-110 transition-all duration-200"
               >
                 <svg
-                  className="w-6 h-6 md:w-8 md:h-8 hover:scale-105 hover:text-primary-light"
+                  className="w-6 h-6 md:w-8 md:h-8"
                   fill="none"
                   stroke="currentColor"
                   strokeWidth="1.5"
                   viewBox="0 0 24 24"
                 >
-                  <rect
-                    x="2"
-                    y="2"
-                    width="20"
-                    height="20"
-                    rx="5"
-                    ry="5"
-                    stroke="white"
-                    strokeWidth="1.5"
-                  />
-                  <path
-                    d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"
-                    stroke="white"
-                    strokeWidth="1.5"
-                  />
-                  <circle cx="17.5" cy="6.5" r="0.5" fill="white" />
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                  <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z" />
+                  <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" />
                 </svg>
               </a>
-              <a href="https://www.linkedin.com/company/park-by-vaala/about/" target="_blank" className="text-gray-300 hover:scale-105 hover:text-primary-light transition-colors">
+
+              {/* LinkedIn */}
+              <a href="https://www.linkedin.com/company/park-by-vaala/about/" target="_blank" rel="noreferrer" className="text-gray-300 hover:text-[#33CCFF] hover:scale-110 transition-all duration-200">
                 <Linkedin className="w-6 h-6 md:w-8 md:h-8" />
               </a>
             </div>
-
           </div>
 
           {/* Contacto */}
-          <div className="space-y-4">
-            <h3 className="text-lg font-semibold">CONTACTO</h3>
-            <div className="space-y-2 text-sm text-gray-300">
-              <p>contacto@parkbyvaala.cl</p>
-              <p>Viña del Mar, Chile</p>
+          <div className="space-y-4 md:pl-10">
+            <h3 className="text-lg font-bold text-[#33CCFF] tracking-wide">CONTACTO</h3>
+            <div className="space-y-3 text-sm text-gray-300">
+              <p className="flex items-center gap-2">
+                <span className="opacity-70">✉</span> contacto@parkbyvaala.cl
+              </p>
+              <p className="flex items-center gap-2">
+                <span className="opacity-70">📍</span> Viña del Mar, Chile
+              </p>
             </div>
           </div>
 
           {/* Servicios */}
           <div className="space-y-4">
-            <h3 className="text-lg font-semibold">SERVICIOS</h3>
+            <h3 className="text-lg font-bold text-[#33CCFF] tracking-wide">SERVICIOS</h3>
             <div className="space-y-2 text-sm text-gray-300">
               <p>Gestión Inteligente</p>
               <p>Control de Flujo de Dinero</p>
@@ -87,9 +82,33 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="border-t border-gray-700 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-400">
-          <p>© 2025 Park by Vaala. Todos los derechos reservados.</p>
-          <p>Premio ASIVA 2025 ®</p>
+        {/* --- BARRA INFERIOR (Copyright + Legales + Premio) --- */}
+        <div className="border-t border-gray-700 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-400 gap-4">
+          
+          <div className="flex flex-col md:flex-row items-center gap-2 md:gap-6 text-center md:text-left">
+            <p>© 2025 Park by Vaala.</p>
+            
+            {/* NUEVOS ENLACES LEGALES */}
+            <div className="flex gap-4 text-xs md:text-sm">
+              <Link 
+                to="/terminos" 
+                className="hover:text-[#33CCFF] transition-colors underline decoration-transparent hover:decoration-[#33CCFF]"
+              >
+                Términos y Condiciones
+              </Link>
+              <span className="hidden md:inline text-gray-600">•</span>
+              <Link 
+                to="/privacidad" 
+                className="hover:text-[#33CCFF] transition-colors underline decoration-transparent hover:decoration-[#33CCFF]"
+              >
+                Política de Privacidad
+              </Link>
+            </div>
+          </div>
+
+          <p className="font-medium text-gray-300 bg-white/5 px-3 py-1 rounded-full text-xs">
+            Premio ASIVA 2025 ®
+          </p>
         </div>
       </div>
     </footer>

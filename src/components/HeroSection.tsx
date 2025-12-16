@@ -59,8 +59,8 @@ const HeroSection = () => {
               className="max-w-xl"
             >
               <h1 className="text-4xl md:text-5xl lg:text-6xl text-[#006699] uppercase font-extrabold mb-4 leading-tight text-center lg:text-left mt-6 lg:mt-0">
-                MIPARK LLEGA
-                <span className="text-[#33CCFF] block">PRONTO</span>
+                Bienvenid@ a
+                <span className="text-[#33CCFF] block">MiPark</span>
               </h1>
 
               <p className="text-base md:text-lg text-gray-600 mb-8 text-center lg:text-left px-4 lg:px-0">
@@ -83,7 +83,7 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 0.8 }}
-            className="w-full max-w-[280px] md:max-w-[600px] lg:max-w-[800px]"
+            className="w-full max-w-[350px] md:max-w-[600px] lg:max-w-[1200px]"
           >
             <img 
               src={Auto} 

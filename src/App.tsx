@@ -4,9 +4,7 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import Inicio from './pages/Inicio';
 // import Nosotros from './pages/Nosotros';
-import Reconocimientos from './pages/Reconocimientos';
-import Contacto from './pages/Contacto';
-import UnidadesDeNegocio from './pages/UnidadesDeNegocio';
+
 import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
@@ -19,9 +17,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Inicio />} />
             {/* <Route path="/nosotros" element={<Nosotros />} /> */}
-            <Route path="/unidades-de-negocio" element={<UnidadesDeNegocio />} />
-            <Route path="/reconocimientos" element={<Reconocimientos />} />
-            <Route path="/contacto" element={<Contacto />} />
+
           </Routes>
         </main>
         <Footer />
