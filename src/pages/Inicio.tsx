@@ -1,8 +1,10 @@
 import React from 'react';
 import HeroSection from '../components/HeroSection';
 import QueSomos from '../components/QueSomos';
-import MapaInteractivo from '../components/MapaInteractivo';
+import MapaInteractivo from '../components/DescargaApp';
+import ZonaMiPark from '../components/ZonaPark';
 import { motion } from 'framer-motion';
+import DescargaApp from '../components/DescargaApp';
 
 const Inicio = () => {
   const fadeInUp = {
@@ -35,7 +37,8 @@ const containerStagger = {
     <div>
       <HeroSection />
       <QueSomos />
-      <MapaInteractivo />
+      <DescargaApp />
+      <ZonaMiPark />
     </div>
   );
 };

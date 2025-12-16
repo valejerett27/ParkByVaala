@@ -38,7 +38,7 @@ const Header = () => {
     return a === b;
   };
 
-  const linkBaseColor = isScrolled ? "text-[#006699]" : "text-white";
+  const linkBaseColor = isScrolled ? "text-[#006699]" : "#006699";
 
   return (
     <nav

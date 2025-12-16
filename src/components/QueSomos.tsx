@@ -1,89 +1,59 @@
-import React, { useRef, useState } from 'react';
-import YouTube, { YouTubePlayer } from 'react-youtube';
-import { Volume2, VolumeX } from 'lucide-react';
+import React from 'react';
+import PersonaImage from '../assets/img/persona.png';
 
+import { motion } from 'framer-motion';
+const fadeInUp = {
+  hidden: { opacity: 0, y: 40 },
+  visible: { opacity: 1, y: 0 },
+  exit: { opacity: 0, y: 40 }
+};
 const QueSomos = () => {
-  const playerRef = useRef<YouTubePlayer | null>(null);
-  const [isMuted, setIsMuted] = useState(true);
-
-  const onReady = (event: { target: YouTubePlayer }) => {
-    playerRef.current = event.target;
-    playerRef.current.mute(); // empieza en silencio
-    playerRef.current.playVideo();
-  };
-
-  const toggleSound = () => {
-    if (playerRef.current) {
-      if (isMuted) {
-        playerRef.current.seekTo(0);
-        playerRef.current.unMute();
-      } else {
-        playerRef.current.mute();
-      }
-      setIsMuted(!isMuted);
-    }
-  };
-
   return (
-    <section className="py-10 bg-white">
-      <div className="section-container">
-        {/* Título */}
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-extrabold text-[#022E46] mb-6">
-            ¿QUÉ ES <span className="text-gradient lg:px-1">PARK BY VAALA</span>?
-          </h2>
+    <section className="py-12 md:py-20 bg-white">
+      <div className="container mx-auto px-4">
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-10 lg:gap-16">
 
-          <p className="text-xl text-[#006699] max-w-3xl font-medium mx-auto leading-none">
-            Una <span className="font-bold text-primary-dark">solución tecnológica integral para la gestión y control eficiente</span> de
-            estacionamientos, orientada al <span className="font-bold text-primary-dark">cobro oportuno</span>, la <span className="font-bold text-primary-dark">prevención de fraudes</span> y la
-            <span className="font-bold text-primary-dark"> valorización del uso del espacio.</span>
-          </p>
-          <div className="w-20 h-1 bg-primary-light mx-auto mt-8"></div>
-        </div>
-
-        {/* Video con control de sonido */}
-        <div className="max-w-4xl mx-auto mb-16">
-          <div className="relative rounded-lg overflow-hidden shadow-xl bg-black">
-            {/* Wrapper para mantener proporción 16:9 */}
-            <div className="relative pb-[56.25%] h-0">
-              <YouTube
-                videoId="KC-DS8HZMXs"
-                onReady={onReady}
-                className="absolute top-0 left-0 w-full h-full"
-                opts={{
-                  width: '100%',
-                  height: '100%',
-                  playerVars: {
-                    autoplay: 1,
-                    controls: 0,
-                    modestbranding: 1,
-                    rel: 0,
-                    loop: 1,
-                    playlist: 'KC-DS8HZMXs',
-                    mute: 1,
-                  },
-                }}
+          {/* Columna izquierda - Ilustración de persona */}
+          <div className="lg:w-5/12 xl:w-2/5 order-2 lg:order-1">
+            <div className="relative w-full max-w-[500px] mx-auto">
+              <img
+                src={PersonaImage}
+                alt="Persona usando MiPark"
+                className="w-full h-auto object-contain"
               />
             </div>
-
-            {/* Botón de sonido */}
-            <button
-              onClick={toggleSound}
-              className="absolute bottom-4 right-4 z-20 bg-primary-light hover:bg-primary-dark text-white px-4 py-2 rounded-full flex items-center text-sm font-medium transition-all"
-            >
-              {isMuted ? (
-                <>
-                  <VolumeX className="w-5 h-5 mr-2" />
-                  Activar sonido
-                </>
-              ) : (
-                <>
-                  <Volume2 className="w-5 h-5 mr-2" />
-                  Silenciar
-                </>
-              )}
-            </button>
           </div>
+
+          {/* Columna derecha - Contenido */}
+          <div className="lg:w-7/12 xl:w-3/5 order-1 lg:order-2">
+            {/* Ícono de pregunta y título */}
+            <div className="flex flex-col items-center lg:items-start text-center lg:text-left mb-8">
+              <div className="mb-6">
+                <div className="inline-flex items-center justify-center w-16 h-16 md:w-20 md:h-20 bg-gradient-to-br from-[#006699] to-[#33CCFF] rounded-full shadow-lg">
+                  <span className="text-3xl md:text-6xl text-white font-bold text-blue-700">?</span>
+                </div>
+              </div>
+
+              <motion.h1 variants={fadeInUp} className="text-4xl md:text-6xl text-[#006699] uppercase  max-w-2xl font-extrabold mb-6">
+                ¿Qué es
+                <span className="text-primary-light text-gradient px-1">MiPark</span>
+              </motion.h1>
+            </div>
+
+            {/* Descripción */}
+            <div className="space-y-6">
+              <p className="text-lg md:text-xl text-gray-700 leading-relaxed">
+                <span className="font-bold">MIPark</span> —también conocida como la “app de pago” de Park by Vaalu— es una aplicación que permite a los usuarios pagar su estacionamiento en las zonas habilitadas sin depender de operadores.
+              </p>
+
+              <p className="text-lg md:text-xl text-gray-700 leading-relaxed">
+                La app ofrece un sistema de pago rápido y seguro desde el celular. En ella puedes identificar la zona y la tarifa correspondiente, registrar múltiples patentes y administrar cada estacionamiento, revisando tiempos, estudios e historial de pagos.
+              </p>
+            </div>
+
+
+          </div>
+
         </div>
       </div>
     </section>
