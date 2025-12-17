@@ -47,7 +47,7 @@ const QueSomos = () => {
               </p>
 
               <p className="text-lg md:text-xl text-gray-700 leading-relaxed">
-                La app ofrece un sistema de pago rápido y seguro desde el celular. En ella puedes identificar la zona y la tarifa correspondiente, registrar múltiples patentes y administrar cada estacionamiento, revisando tiempos, estudios e historial de pagos.
+                La app ofrece un sistema de pago rápido y seguro desde el celular. En ella puedes identificar la zona y la tarifa correspondiente, registrar múltiples patentes y administrar cada estacionamiento, revisando tiempos e historial de pagos.
               </p>
             </div>
 

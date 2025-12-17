@@ -107,7 +107,7 @@ const DescargaApp = () => {
             <div className="relative rounded-[30px] overflow-hidden shadow-[0_20px_50px_rgba(0,102,153,0.2)] bg-gray-200">
               <div className="relative pb-[56.25%] h-0">
                 <YouTube
-                  videoId="pc0V1CFk0ck"
+                  videoId="z53lg8lStxo"
                   onReady={onReady}
                   className="absolute top-0 left-0 w-full h-full"
                   opts={{
@@ -168,7 +168,7 @@ const DescargaApp = () => {
           <div className="flex flex-col items-center text-center">
             
             <h3 className="text-xl md:text-2xl lg:text-3xl text-[#006699] font-bold leading-snug mb-10 max-w-2xl">
-              Descarga la app y paga tu<br className="hidden md:block" />
+              Descarga la app y paga tu<br className="md:block" />
               estacionamiento de forma <span className="font-extrabold">segura,</span><br className="hidden md:block" />
               <span className="font-extrabold">transparente y rápida.</span>
             </h3>
