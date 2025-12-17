@@ -1,12 +1,13 @@
 import React, { useState, useRef } from 'react';
 import YouTube, { YouTubePlayer } from 'react-youtube'; 
-import { QrCode, Volume2, VolumeX } from 'lucide-react'; // Agregué el icono Send
+import { QrCode, Volume2, VolumeX } from 'lucide-react'; 
 import { motion } from 'framer-motion';
-import emailjs from '@emailjs/browser'; // Importamos EmailJS
+import emailjs from '@emailjs/browser'; 
 
 // Assets
 import GooglePlayIcon from '../assets/img/GooglePlay.png';
 import AppleStoreIcon from '../assets/img/AppleStore.png';
+import LogoPark from '../assets/img/logo-park.png'; // <--- 1. IMPORTAMOS EL LOGO
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 40 },
@@ -15,11 +16,11 @@ const fadeInUp = {
 
 const DescargaApp = () => {
   // --- ESTADOS DEL FORMULARIO ---
-  const formRef = useRef<HTMLFormElement>(null); // Referencia al formulario
+  const formRef = useRef<HTMLFormElement>(null); 
   const [email, setEmail] = useState('');
-  const [isSubmitted, setIsSubmitted] = useState(false); // Estado de éxito
-  const [isSubmitting, setIsSubmitting] = useState(false); // Estado de carga (Enviando...)
-  const [errorMessage, setErrorMessage] = useState(''); // Estado para manejar errores
+  const [isSubmitted, setIsSubmitted] = useState(false); 
+  const [isSubmitting, setIsSubmitting] = useState(false); 
+  const [errorMessage, setErrorMessage] = useState(''); 
 
   // --- LÓGICA DEL VIDEO ---
   const playerRef = useRef<YouTubePlayer | null>(null);
@@ -46,7 +47,7 @@ const DescargaApp = () => {
   // --- LÓGICA DE ENVÍO CON EMAILJS ---
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setErrorMessage(''); // Limpiar errores previos
+    setErrorMessage(''); 
 
     // Validación simple
     if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
@@ -59,7 +60,6 @@ const DescargaApp = () => {
     setIsSubmitting(true);
 
     try {
-      // Usamos las mismas credenciales que tenías en Contacto.tsx
       await emailjs.sendForm(
         'service_vale27',       
         'template_contacto_park', 
@@ -67,12 +67,10 @@ const DescargaApp = () => {
         'qnIdDdOHvhylIGKIG'     
       );
 
-      // Éxito
       console.log('Email enviado:', email);
       setIsSubmitted(true);
-      setEmail(''); // Limpiar el input
+      setEmail(''); 
       
-      // Ocultar mensaje de éxito después de 5 segundos
       setTimeout(() => {
         setIsSubmitted(false);
       }, 5000);
@@ -86,7 +84,7 @@ const DescargaApp = () => {
   };
 
   return (
-    <section className="py-16 md:py-24 bg-[#EAF8FC] min-h-screen flex flex-col items-center justify-center" id="descarga">
+    <section className="py-16 md:py-24 bg-[#EAF8FC] min-h-screen flex flex-col items-center justify-center" id="tutorial">
       
       <div className="container mx-auto px-4">
 
@@ -151,6 +149,7 @@ const DescargaApp = () => {
           variants={fadeInUp} 
           initial="hidden"
           whileInView="visible"
+          id="descarga"
           className="text-center mb-10"
         >
           <h2 className="text-2xl md:text-4xl text-[#006699] font-extrabold uppercase leading-tight tracking-tight">
@@ -163,6 +162,7 @@ const DescargaApp = () => {
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5 }}
+          
           className="bg-white rounded-[40px] shadow-[0_20px_50px_rgba(0,102,153,0.15)] max-w-[800px] mx-auto p-8 md:p-12 lg:p-16 relative overflow-hidden"
         >
           
@@ -183,7 +183,6 @@ const DescargaApp = () => {
                    <div className="absolute inset-0 flex items-center justify-center">
                      <span className="text-gray-500 font-medium text-sm bg-white/95 px-3 py-1 rounded-lg shadow-sm border border-gray-50 whitespace-nowrap">No disponible</span>
                    </div>
-                   {/* Decoración */}
                    <div className="absolute top-3 left-3 w-3 h-3 border-l-[3px] border-t-[3px] border-gray-200 rounded-tl-lg"></div>
                    <div className="absolute top-3 right-3 w-3 h-3 border-r-[3px] border-t-[3px] border-gray-200 rounded-tr-lg"></div>
                    <div className="absolute bottom-3 left-3 w-3 h-3 border-l-[3px] border-b-[3px] border-gray-200 rounded-bl-lg"></div>
@@ -199,7 +198,6 @@ const DescargaApp = () => {
                    <div className="absolute inset-0 flex items-center justify-center">
                      <span className="text-gray-500 font-medium text-sm bg-white/95 px-3 py-1 rounded-lg shadow-sm border border-gray-50 whitespace-nowrap">No disponible</span>
                    </div>
-                   {/* Decoración */}
                    <div className="absolute top-3 left-3 w-3 h-3 border-l-[3px] border-t-[3px] border-gray-200 rounded-tl-lg"></div>
                    <div className="absolute top-3 right-3 w-3 h-3 border-r-[3px] border-t-[3px] border-gray-200 rounded-tr-lg"></div>
                    <div className="absolute bottom-3 left-3 w-3 h-3 border-l-[3px] border-b-[3px] border-gray-200 rounded-bl-lg"></div>
@@ -209,11 +207,6 @@ const DescargaApp = () => {
               </div>
             </div>
 
-            {/* <div className="text-center leading-tight mb-2">
-              <p className="text-gray-500 font-medium text-sm">Lanzamiento oficial</p>
-              <p className="text-gray-600 font-bold text-lg">próximamente</p>
-            </div> */}
-
             {/* BOTONES STORES */}
             <div className="w-full mt-8 mb-16">
               <div className="flex flex-col md:flex-row justify-center items-center gap-6">
@@ -221,7 +214,7 @@ const DescargaApp = () => {
                   <img src={GooglePlayIcon} alt="Google Play" className="h-20 w-20 object-contain" />
                 </button>
                 <button className="group relative bg-white hover:bg-gray-50 rounded-full w-64 h-16 shadow-[0_8px_20px_rgba(0,0,0,0.06)] hover:shadow-[0_10px_25px_rgba(0,0,0,0.1)] transition-all duration-300 border border-gray-100 flex items-center justify-center gap-3">
-                   <img src={AppleStoreIcon} alt="Apple Store" className="h-20 w-20 object-contain mb-1" />
+                   <img src={AppleStoreIcon} alt="App Store" className="h-20 w-20 object-contain mb-1" />
                 </button>
               </div>
             </div>
@@ -230,9 +223,21 @@ const DescargaApp = () => {
                 FORMULARIO NEWSLETTER (Funcional con EmailJS)
                 ============================================================ */}
             <div className="w-full max-w-lg mx-auto mt-4">
+              
+              {/* --- 2. AQUÍ AGREGAMOS EL LOGO ANTES DEL FORMULARIO --- */}
+              <div className="flex justify-center mb-6">
+                 <img 
+                    src={LogoPark} 
+                    alt="Logo MiPark" 
+                    className="h-10 md:h-14 w-auto object-contain" 
+                 />
+              </div>
+
+              {/* Título (comentado anteriormente) */}
               {/* <h3 className="text-2xl md:text-3xl font-extrabold text-[#006699] mb-3">
                 ¡No te quedes fuera!
               </h3> */}
+              
               <p className="text-gray-500 text-sm md:text-[15px] font-medium mb-8 leading-relaxed max-w-sm mx-auto md:max-w-none">
                 Ingresa tu correo para obtener información y acceso a sorpresas especiales.
               </p>
@@ -241,7 +246,7 @@ const DescargaApp = () => {
                 <div className="w-full mb-8 relative">
                   <input
                     type="email"
-                    name="email" // IMPORTANTE: name="email" para que EmailJS lo detecte
+                    name="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     disabled={isSubmitted || isSubmitting}
@@ -252,7 +257,6 @@ const DescargaApp = () => {
                       }`}
                     placeholder="ejemplo@email.com" 
                   />
-                  {/* Mensaje de error flotante debajo del input */}
                   {errorMessage && (
                     <p className="text-red-500 text-sm mt-2 absolute w-full text-center">
                       {errorMessage}

@@ -82,13 +82,13 @@ const Header = () => {
                 className={`${linkBaseColor} uppercase px-3 py-2 text-sm font-bold transition-all duration-200 relative group hover:text-[#33CCFF] tracking-wide cursor-pointer`}
               >
                 {item.name}
-                <span className="absolute bottom-0 left-0 h-0.5 bg-[#33CCFF] transition-all duration-300 w-0 group-hover:w-full opacity-0 group-hover:opacity-100" />
+                <span className="absolute uppercase bottom-0 left-0 h-0.5 bg-[#33CCFF] transition-all duration-300 w-0 group-hover:w-full opacity-0 group-hover:opacity-100" />
               </a>
             ))}
 
             <a
-              href="#beneficios" // O donde quieras que lleve el botón de descarga
-              onClick={(e) => handleScrollTo(e, "#beneficios")}
+              href="#descarga" // O donde quieras que lleve el botón de descarga
+              onClick={(e) => handleScrollTo(e, "#descarga")}
               className="bg-gradient-to-r from-[#006699] to-[#33CCFF] text-white uppercase px-7 py-2.5 rounded-full font-bold shadow-md hover:shadow-lg hover:scale-105 transition-all duration-200 text-sm tracking-wider cursor-pointer"
             >
               Descarga
