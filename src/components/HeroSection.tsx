@@ -68,9 +68,19 @@ const HeroSection = () => {
               </p>
 
               <div className="flex justify-center lg:justify-start">
-                <button className="bg-gradient-to-r from-[#006699] to-[#33CCFF] text-white uppercase px-8 py-3 rounded-full font-bold shadow-lg hover:scale-105 transition-transform z-20 relative">
+                <a 
+                  href="#descarga"
+                  onClick={(e) => {
+                    e.preventDefault(); // Evita el salto brusco
+                    const element = document.querySelector("#descarga");
+                    if (element) {
+                      element.scrollIntoView({ behavior: "smooth" }); // Scroll suave
+                    }
+                  }}
+                  className="bg-gradient-to-r from-[#006699] to-[#33CCFF] text-white uppercase px-8 py-3 rounded-full font-bold shadow-lg hover:scale-105 transition-transform z-20 relative cursor-pointer"
+                >
                   DESCARGA LA APP
-                </button>
+                </a>
               </div>
             </motion.div>
           </div>

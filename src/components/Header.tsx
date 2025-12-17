@@ -118,7 +118,7 @@ const Header = () => {
                 key={item.name}
                 href={item.href}
                 onClick={(e) => handleScrollTo(e, item.href)}
-                className="block w-full text-center px-4 py-3 text-lg font-bold text-[#006699] hover:bg-blue-50 rounded-xl transition-colors"
+                className="block w-full text-center uppercase px-4 py-3 text-lg font-bold text-[#006699] hover:bg-blue-50 rounded-xl transition-colors"
               >
                 {item.name}
               </a>

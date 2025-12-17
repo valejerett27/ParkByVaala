@@ -16,10 +16,7 @@ const Footer = () => {
               <img src={LogoPark} alt="Logo Park" className="h-16 w-auto" />
             </Link>
             <p className="text-gray-300 text-sm leading-relaxed max-w-sm">
-              Solución tecnológica integral para la gestión y control
-              eficiente de estacionamientos, orientada al cobro
-              oportuno, la prevención de fraudes y la valorización del
-              uso del espacio.
+              Una solución gratuita, más rápida y con muchos beneficios para ti.
             </p>
             
             {/* Redes Sociales */}
@@ -58,7 +55,7 @@ const Footer = () => {
             <h3 className="text-lg font-bold text-[#33CCFF] tracking-wide">CONTACTO</h3>
             <div className="space-y-3 text-sm text-gray-300">
               <p className="flex items-center gap-2">
-                <span className="opacity-70">✉</span> contacto@parkbyvaala.cl
+                <span className="opacity-70">✉</span> parkbyvaala@vaalagroup.cl
               </p>
               <p className="flex items-center gap-2">
                 <span className="opacity-70">📍</span> Viña del Mar, Chile

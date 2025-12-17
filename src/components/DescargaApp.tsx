@@ -7,7 +7,6 @@ import emailjs from '@emailjs/browser';
 // Assets
 import GooglePlayIcon from '../assets/img/GooglePlay.png';
 import AppleStoreIcon from '../assets/img/AppleStore.png';
-import LogoPark from '../assets/img/logo-park.png'; // <--- 1. IMPORTAMOS EL LOGO
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 40 },
@@ -61,10 +60,10 @@ const DescargaApp = () => {
 
     try {
       await emailjs.sendForm(
-        'service_vale27',       
-        'template_contacto_park', 
+        'service_mipark',       
+        'template_mipark', 
         formRef.current,
-        'qnIdDdOHvhylIGKIG'     
+        'vbRTRBoKwmCqXMj3h'     
       );
 
       console.log('Email enviado:', email);
@@ -224,19 +223,12 @@ const DescargaApp = () => {
                 ============================================================ */}
             <div className="w-full max-w-lg mx-auto mt-4">
               
-              {/* --- 2. AQUÍ AGREGAMOS EL LOGO ANTES DEL FORMULARIO --- */}
-              <div className="flex justify-center mb-6">
-                 <img 
-                    src={LogoPark} 
-                    alt="Logo MiPark" 
-                    className="h-10 md:h-14 w-auto object-contain" 
-                 />
-              </div>
+
 
               {/* Título (comentado anteriormente) */}
-              {/* <h3 className="text-2xl md:text-3xl font-extrabold text-[#006699] mb-3">
+              <h3 className="text-2xl uppercase md:text-3xl font-extrabold text-[#006699] mb-3">
                 ¡No te quedes fuera!
-              </h3> */}
+              </h3>
               
               <p className="text-gray-500 text-sm md:text-[15px] font-medium mb-8 leading-relaxed max-w-sm mx-auto md:max-w-none">
                 Ingresa tu correo para obtener información y acceso a sorpresas especiales.
