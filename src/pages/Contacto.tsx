@@ -63,10 +63,10 @@ const Contacto = () => {
     setIsSubmitting(true);
     try {
       await emailjs.sendForm(
-        'service_vale27',
-        'template_contacto_park',
+        'service_parkbyvaala',
+        'template_parkbyvaala',
         formRef.current,
-        'qnIdDdOHvhylIGKIG'
+        'hHlLSjHAH5h95e1Rn'
       );
       setFormStatus({
         message: '¡Formulario enviado con éxito!',
