@@ -18,6 +18,9 @@ import IconHardware from '../assets/icons/Icon_Hardware.png';
 import camarareconocimiento from '../assets/bg/CamaraReconocimiento.png';
 import sistemaIntegrado from '../assets/bg/SistemaIntegrado.png';
 import sistemaintercomunicacion from '../assets/bg/SistemaInter.png';
+import IconSoftware2 from '../assets/icons/Software-icon1.png';
+import IconHardware2 from '../assets/icons/Hardware-icon1.png';
+import IconApp from '../assets/icons/App-icon1.png';
 
 
 const fadeInUp = {
@@ -100,9 +103,22 @@ const PlatformHero = () => {
     }
   ];
   const navigate = useNavigate();
-
+  const unidadesNegocio = [
+    {
+      image: IconSoftware2,
+      label: "SOFTWARE",
+    },
+    {
+      image: IconHardware2,
+      label: "HARDWARE",
+    },
+    {
+      image: IconApp,
+      label: "APP DE PAGO",
+    },
+  ];
   return (
-    <div className="overflow-x-hidden">
+    <div className="overflow-x-hidden bg-[#f9fafb]">
       <motion.section
         initial="hidden"
         whileInView="visible"
@@ -110,24 +126,63 @@ const PlatformHero = () => {
         variants={fadeInUp}
         transition={{ duration: 0.8 }}
         viewport={{ once: false }}
-        // className="bg-gradient-to-br from-[#003249] via-[#014d72] to-[#006699] text-white mt-[2rem] pt-20 pb-6"
-        className="bg-gradient-to-br from-[#003249] via-[#014d72] to-[#006699] text-white pb-20 pt-36 relative overflow-hidden"
+        className="bg-gradient-to-br from-[#003249] via-[#014d72] to-[#006699] text-white pb-32 pt-36 relative overflow-hidden"
       >
+        {/* Efectos de fondo */}
         <div className="absolute inset-0 z-0 hidden lg:block">
           <div className="absolute top-20 left-20 w-72 h-72 bg-blue-900 rounded-full opacity-10 blur-3xl animate-pulse"></div>
           <div className="absolute top-20 right-10 w-48 h-48 bg-sky-500 rounded-full opacity-20 blur-2xl animate-pulse"></div>
           <div className="absolute inset-0 bg-[url('/assets/img/bg/grid-light.svg')] bg-center bg-cover opacity-10"></div>
         </div>
-        <div className="section-container  text-center mt-6">
-          <motion.h1 variants={fadeInUp} className="text-4xl md:text-6xl uppercase mx-auto max-w-2xl font-extrabold mb-6">
-            Nuestras
-            <span className="text-primary-light text-gradient px-1">Unidades</span> de <span className="text-primary-light text-gradient px-1">Negocio</span>
+
+        {/* Contenido de texto */}
+        <div className="relative z-10 section-container text-center mt-6 px-4">
+          <motion.h1
+            variants={fadeInUp}
+            className="text-4xl md:text-5xl lg:text-6xl uppercase mx-auto max-w-3xl font-extrabold mb-6 leading-tight"
+          >
+            NUESTRAS <span className="text-[#4FC3F7]">UNIDADES</span><br />
+            DE <span className="text-[#4FC3F7]">NEGOCIO</span>
           </motion.h1>
-          <motion.p variants={fadeInUp} className="text-xl text-white max-w-2xl font-medium mx-auto leading-none">
-            Ofrecemos un <span className="font-bold">sistema de gestión de estacionamientos flexible y modular.</span> Puedes elegir  <span className="font-bold">uno, dos o todos nuestros serivicios,</span> según lo que mejor se adapte a tu operación.
+
+          <motion.p
+            variants={fadeInUp}
+            className="text-base md:text-lg text-white max-w-3xl font-medium mx-auto leading-relaxed"
+          >
+            Ofrecemos un <span className="font-bold">sistema de gestión de estacionamientos flexible y modular.</span> Puedes elegir <span className="font-bold">uno, dos o todos nuestros servicios,</span> según lo que mejor se adapte a tu operación.
           </motion.p>
         </div>
       </motion.section>
+      <div className="relative z-20 -mt-20 sm:-mt-24 mb-20 px-4">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={fadeInUp}
+          className="flex flex-col sm:flex-row items-center justify-center gap-10 sm:gap-16 md:gap-24"
+        >
+          {unidadesNegocio.map((unidad, index) => (
+            <div
+              key={index}
+              className="group flex flex-col items-center gap-4 transition-transform duration-300 hover:-translate-y-2 cursor-pointer"
+            >
+              {/* Contenedor del ícono circular */}
+              <div className="w-28 h-28 sm:w-36 sm:h-36 flex items-center justify-center transition-all duration-300">
+                <img
+                  src={unidad.image}
+                  alt={unidad.label}
+                  className="w-full h-full object-contain drop-shadow-lg group-hover:drop-shadow-2xl transition-all duration-300"
+                />
+              </div>
+
+              {/* Texto debajo del ícono */}
+              <span className="text-[#006699] font-extrabold tracking-wide uppercase text-sm sm:text-base">
+                {unidad.label}
+              </span>
+            </div>
+          ))}
+        </motion.div>
+      </div>
 
       <motion.section
         initial="hidden"
@@ -157,7 +212,7 @@ const PlatformHero = () => {
             className="bg-[#edeeef] text-center font-extrabold  py-6  px-4"
           >
             <div className="flex justify-center my-10">
-              <img src={IconSoftware} alt="APP de Pago" className="w-16 h-16 mx-auto max-w-full object-contain" />
+              <img src={IconSoftware2} alt="APP de Pago" className="w-16 h-16 mx-auto max-w-full object-contain" />
             </div>
 
             <h2 className="text-3xl md:text-4xl uppercase mt-2 font-extrabold text-[#006699] mb-4">
@@ -288,7 +343,7 @@ const PlatformHero = () => {
             className="text-center font-extrabold max-w-2xl mx-auto pt-4 px-4"
           >
             <div className="flex justify-center my-10">
-              <img src={IconHardware} alt="APP de Pago" className="w-16 h-16 mx-auto max-w-full object-contain" />
+              <img src={IconHardware2} alt="APP de Pago" className="w-16 h-16 mx-auto max-w-full object-contain" />
             </div>
 
 
@@ -312,44 +367,48 @@ const PlatformHero = () => {
           </motion.div>
 
           <motion.section
-            className="bg-white/10 border border-white/10 rounded-lg shadow-lg  mt-12 px-6 py-12 w-full overflow-hidden"
+            className="bg-white/10 border border-white/10 rounded-lg shadow-lg mt-12 px-6 py-12 w-full overflow-hidden"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
             variants={fadeInUp}
           >
-            {/* Título y Subtítulo */}
-            <div className="max-w-2xl mx-auto text-center px-4">
-              <h2 className="text-3xl md:text-4xl font-extrabold text-white uppercase mb-4">
+            {/* 1. Título y Subtítulo: Ahora con max-w-3xl para que no sea infinito, pero permitiendo que el grid de abajo crezca */}
+            <div className="max-w-3xl mb-12">
+              <h2 className="text-3xl md:text-4xl font-extrabold text-white uppercase mb-4 leading-tight">
                 Sistema de Control de Acceso Vehicular
               </h2>
-              <p className="text-lg md:text-xl font-medium text-white my-8">
+              <p className="text-lg md:text-xl font-medium text-white/90">
                 Una solución integral que combina{" "}
-                <span className="font-semibold">ticketeras de entrada y salida junto con barreras automáticas,</span>{" "}
-                diseñada para gestionar de manera eficiente el flujo de vehículos dentro y fuera de los estacionamientos.
+                <span className="font-semibold text-[#4FC3F7]">ticketeras de entrada y salida junto con barreras automáticas,</span>{" "}
+                diseñada para gestionar de manera eficiente el flujo de vehículos.
               </p>
             </div>
 
-            {/* Grid de tarjetas */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-4">
+            {/* 2. Grid de tarjetas: Al no estar dentro de un flex horizontal, ahora tiene el 100% del ancho del contenedor */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
               {controlesAccesos.map((controlAcceso, index) => (
                 <motion.div
                   key={index}
-                  className="p-6 rounded-xl bg-white/10 border border-white/10 hover:shadow-lg transition-all duration-300 text-center"
+                  className="p-6 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-all duration-300 flex flex-col justify-between"
                   variants={fadeInUp}
                   transition={{ duration: 0.5 }}
                 >
-                  <h3 className="text-xl font-extrabold text-white uppercase mb-3">
-                    {controlAcceso.title}
-                  </h3>
-                  <p className="text-md text-white mb-4">
-                    {controlAcceso.descripcion}
-                  </p>
-                  <img
-                    src={controlAcceso.imagen}
-                    alt={`Imagen ${index + 1}`}
-                    className="w-full h-auto rounded-lg object-cover"
-                  />
+                  <div>
+                    <h3 className="text-xl font-extrabold text-white uppercase mb-3">
+                      {controlAcceso.title}
+                    </h3>
+                    <p className="text-sm md:text-md text-white/80 mb-6">
+                      {controlAcceso.descripcion}
+                    </p>
+                  </div>
+                  <div className="relative aspect-video lg:aspect-square overflow-hidden rounded-lg">
+                    <img
+                      src={controlAcceso.imagen}
+                      alt={controlAcceso.title}
+                      className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
+                    />
+                  </div>
                 </motion.div>
               ))}
             </div>

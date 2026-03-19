@@ -23,7 +23,7 @@ const Footer = () => {
             </p>
             <div className="flex space-x-4">
               {/* WhatsApp */}
-              <a href="https://wa.me/56923740953" target="_blank" className="hover:scale-105 hover:text-primary-light transition" aria-label="WhatsApp">
+              <a href="https://wa.me/56988173285" target="_blank" className="hover:scale-105 hover:text-primary-light transition" aria-label="WhatsApp">
                 <img src={WhatsappIcon} alt="WhatsApp logo" className="w-6 h-6 md:w-8 md:h-8 invert" />
               </a>
 
