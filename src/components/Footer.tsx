@@ -71,6 +71,7 @@ const Footer = () => {
             <h3 className="text-lg font-semibold">CONTACTO</h3>
             <div className="space-y-2 text-sm text-gray-300">
               <p>soporte@parkbyvaala.cl</p>
+              <p>contacto@parkbyvaala.cl</p>
               <p>Viña del Mar, Chile</p>
             </div>
           </div>

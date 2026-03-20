@@ -13,14 +13,13 @@ import { useNavigate } from "react-router-dom";
 import imgMaqueta from "../assets/bg/img_maqueta.png";
 import imgMaqueta2 from "../assets/bg/img_maqueta2.png";
 import imgMaqueta3 from "../assets/bg/img_maqueta3.png";
-import IconSoftware from '../assets/icons/Icon_Software.png';
-import IconHardware from '../assets/icons/Icon_Hardware.png';
 import camarareconocimiento from '../assets/bg/CamaraReconocimiento.png';
 import sistemaIntegrado from '../assets/bg/SistemaIntegrado.png';
 import sistemaintercomunicacion from '../assets/bg/SistemaInter.png';
 import IconSoftware2 from '../assets/icons/Software-icon1.png';
 import IconHardware2 from '../assets/icons/Hardware-icon1.png';
 import IconApp from '../assets/icons/App-icon1.png';
+import CajeroAutoservicio from '../assets/icons/CajeroAutoservicio.png';
 
 
 const fadeInUp = {
@@ -100,6 +99,11 @@ const PlatformHero = () => {
       title: 'Sistema de intercomunicación',
       descripcion: 'Comunicación directa entre usuarios y operadores para resolver incidencias o solicitar asistencia en tiempo real.',
       imagen: sistemaintercomunicacion
+    },
+    {
+      title: 'Cajero Automático',
+      descripcion: 'Permite a los usuarios ingresar el ticket o patente, ver el monto y pagar de forma rápida y autónoma. ',
+      imagen: CajeroAutoservicio
     }
   ];
   const navigate = useNavigate();
@@ -107,16 +111,27 @@ const PlatformHero = () => {
     {
       image: IconSoftware2,
       label: "SOFTWARE",
+      id: "seccion-software", // ID único
     },
     {
       image: IconHardware2,
       label: "HARDWARE",
+      id: "seccion-hardware", // ID único
     },
     {
       image: IconApp,
       label: "APP DE PAGO",
+      id: "seccion-app", // ID único
     },
   ];
+
+  // Función para el scroll
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
   return (
     <div className="overflow-x-hidden bg-[#f9fafb]">
       <motion.section
@@ -164,6 +179,7 @@ const PlatformHero = () => {
           {unidadesNegocio.map((unidad, index) => (
             <div
               key={index}
+              onClick={() => scrollToSection(unidad.id)} // Llamada a la función
               className="group flex flex-col items-center gap-4 transition-transform duration-300 hover:-translate-y-2 cursor-pointer"
             >
               {/* Contenedor del ícono circular */}
@@ -210,6 +226,7 @@ const PlatformHero = () => {
           <motion.div
             variants={fadeInUp}
             className="bg-[#edeeef] text-center font-extrabold  py-6  px-4"
+            id="seccion-software"
           >
             <div className="flex justify-center my-10">
               <img src={IconSoftware2} alt="APP de Pago" className="w-16 h-16 mx-auto max-w-full object-contain" />
@@ -331,6 +348,7 @@ const PlatformHero = () => {
       <motion.section
         initial="hidden"
         whileInView="visible"
+        id="seccion-hardware"
         exit="exit"
         variants={containerStagger}
         viewport={{ once: false }}
@@ -367,70 +385,93 @@ const PlatformHero = () => {
           </motion.div>
 
           <motion.section
-            className="bg-white/10 border border-white/10 rounded-lg shadow-lg mt-12 px-6 py-12 w-full overflow-hidden"
+            className="bg-white/10 border border-white/10 rounded-lg shadow-lg mt-12 px-8 py-12 w-full overflow-hidden"
             initial="hidden"
+            
             whileInView="visible"
             viewport={{ once: true }}
             variants={fadeInUp}
           >
-            {/* 1. Título y Subtítulo: Ahora con max-w-3xl para que no sea infinito, pero permitiendo que el grid de abajo crezca */}
-            <div className="max-w-3xl mb-12">
-              <h2 className="text-3xl md:text-4xl font-extrabold text-white uppercase mb-4 leading-tight">
-                Sistema de Control de Acceso Vehicular
-              </h2>
-              <p className="text-lg md:text-xl font-medium text-white/90">
-                Una solución integral que combina{" "}
-                <span className="font-semibold text-[#4FC3F7]">ticketeras de entrada y salida junto con barreras automáticas,</span>{" "}
-                diseñada para gestionar de manera eficiente el flujo de vehículos.
-              </p>
+            {/* FILA SUPERIOR: Bloque Izquierdo + Bloque Derecho */}
+            <div className="flex flex-col bg-[#2977AA] p-6 rounded-xl lg:flex-row gap-12 items-center w-full">
+
+              {/* BLOQUE IZQUIERDO: Título y Subtítulo */}
+              <div className="w-full lg:w-1/3">
+                <h2 className="text-3xl md:text-4xl font-extrabold text-white uppercase mb-4 leading-tight">
+                  Sistema de Control de Acceso Vehicular
+                </h2>
+                <p className="text-lg md:text-xl font-medium text-white/90">
+                  Una solución integral que combina{" "}
+                  <span className="font-semibold text-[#4FC3F7]">
+                    ticketeras de entrada y salida junto con barreras automáticas,
+                  </span>{" "}
+                  diseñada para gestionar de manera eficiente el flujo de vehículos.
+                </p>
+              </div>
+
+              {/* BLOQUE DERECHO: Grid de tarjetas de Acceso */}
+              <div className="w-full lg:w-2/3">
+                <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
+                  {controlesAccesos.map((controlAcceso, index) => (
+                    <motion.div
+                      key={index}
+                      className="p-6 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-all duration-300 flex flex-col justify-between group"
+                      variants={fadeInUp}
+                      transition={{ duration: 0.5, delay: index * 0.1 }}
+                    >
+                      <div>
+                        <h3 className="text-xl font-extrabold text-white uppercase mb-3 text-center lg:text-left">
+                          {controlAcceso.title}
+                        </h3>
+                        <p className="text-sm text-white/80 mb-6 text-center lg:text-left">
+                          {controlAcceso.descripcion}
+                        </p>
+                      </div>
+                      <div className="mt-auto overflow-hidden rounded-lg h-[350px] w-full">
+                        <img
+                          src={controlAcceso.imagen}
+                          alt={controlAcceso.title}
+                          className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
+                        />
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
             </div>
 
-            {/* 2. Grid de tarjetas: Al no estar dentro de un flex horizontal, ahora tiene el 100% del ancho del contenedor */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-              {controlesAccesos.map((controlAcceso, index) => (
-                <motion.div
-                  key={index}
-                  className="p-6 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-all duration-300 flex flex-col justify-between"
-                  variants={fadeInUp}
-                  transition={{ duration: 0.5 }}
-                >
-                  <div>
-                    <h3 className="text-xl font-extrabold text-white uppercase mb-3">
-                      {controlAcceso.title}
+            <div className="mt-12 border-t border-white/10 pt-12">
+              <motion.div
+                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 w-full"
+              >
+                {sistemas.map((sistema, index) => (
+                  <motion.div
+                    key={index}
+
+                    className="p-8 bg-white/5 border border-white/10 card-hover rounded-xl shadow-lg text-center group h-full flex flex-col"
+                    variants={fadeInUp}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                  >
+                    <h3 className="text-lg font-bold uppercase text-white mb-5 min-h-[3.5rem] flex items-center justify-center">
+                      {sistema.title}
                     </h3>
-                    <p className="text-sm md:text-md text-white/80 mb-6">
-                      {controlAcceso.descripcion}
+
+                    <p className="text-md font-normal text-white/80 mb-6 flex-grow">
+                      {sistema.descripcion}
                     </p>
-                  </div>
-                  <div className="relative aspect-video lg:aspect-square overflow-hidden rounded-lg">
-                    <img
-                      src={controlAcceso.imagen}
-                      alt={controlAcceso.title}
-                      className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
-                    />
-                  </div>
-                </motion.div>
-              ))}
+
+                    <div className="mt-auto overflow-hidden rounded-lg h-[350px] w-full">
+                      <img
+                        src={sistema.imagen}
+                        alt={sistema.title}
+                        className='w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500'
+                      />
+                    </div>
+                  </motion.div>
+                ))}
+              </motion.div>
             </div>
           </motion.section>
-
-
-          <motion.div className="grid grid-cols-1  mt-4 md:grid-cols-2 lg:grid-cols-3 gap-8 py-12 px-6  w-full overflow-hidden">
-
-            {sistemas.map((sistema, index) => (
-              <motion.div
-                key={index}
-                className=" p-8 bg-white/10 border border-white/10 card-hover rounded-lg shadow-lg text-center"
-                variants={fadeInUp}
-                transition={{ duration: 0.5 }}
-              >
-
-                <h3 className="text-lg font-bold uppercase text-white mb-5">{sistema.title}</h3>
-                <p className="text-md font-small text-white mb-2">{sistema.descripcion}</p>
-                <img src={sistema.imagen} alt="imagen" className='rounded-lg' />
-              </motion.div>
-            ))}
-          </motion.div>
         </div>
       </motion.section>
     </div>

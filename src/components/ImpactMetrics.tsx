@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import IconMonitoreo from '../assets/icons/Icon_Instalacion.png';
 import IconValidacion from '../assets/icons/Icon_Mantencion.png';
 import IconEspacio from '../assets/icons/Icon_Uso.png';
+import CelularImg from '../assets/icons/Celular1.png';
 
 import IconApp from '../assets/icons/Icon_AppPago.png';
 import { useNavigate } from "react-router-dom";
@@ -86,26 +87,68 @@ const ImpactMetrics = () => {
         exit="exit"
         variants={containerStagger}
         viewport={{ once: false }}
-        className="pb-10 bg-white"
+        className="py-20 bg-gray-50"
       >
-        <div className="section-container">
-          <motion.div variants={fadeInUp} className="text-center font-extrabold">
-            <div className="flex justify-center my-10">
-              <img src={IconApp} alt="APP de Pago" className="w-16 h-16 mx-auto max-w-full object-contain" />
+        <div className="container mx-auto px-4 md:px-8">
+
+          <motion.div variants={fadeInUp} className="text-center mb-16" id="seccion-app">
+            <div className="flex justify-center mb-6">
+              <img
+                src={IconApp}
+                alt="Ícono APP de Pago"
+                className="w-20 h-20 md:w-24 md:h-24 object-contain drop-shadow-md"
+              />
             </div>
-            <h2 className="text-3xl md:text-4xl uppercase mt-2 font-extrabold text-[#006699] mb-4">
+            <h2 className="text-3xl md:text-4xl uppercase font-extrabold text-[#006699] tracking-wider">
               APP de Pago
             </h2>
-            <span className="block  font-semibold max-w-sm mx-auto text-lg text-[#33CCFF]">
-              ¡Proximamente!
-            </span>
+          </motion.div>
 
-            <span className="block max-w-4xl mx-auto text-center pb-24 my-6 font-medium text-lg text-gray-700">
-              Pronto dispondremos de nuestra <span className="font-semibold">app de pago </span>para que los usuarios
-              puedan gestionar su experiencia de estacionamiento directamente desde
-              el celular: <span className="font-semibold">pagar, revisar historial y mucho más.
+          <motion.div
+            variants={fadeInUp}
+
+            className="bg-white rounded-3xl shadow-2xl overflow-hidden flex flex-col lg:flex-row items-stretch max-w-7xl mx-auto"
+          >
+
+            <div
+              className="w-full lg:w-1/2 bg-[#BBEEFF] flex items-center justify-center p-8 lg:p-12 relative"
+            >
+              <img
+                src={CelularImg}
+                alt="MiPark App en Celular"
+                className="w-full max-w-sm lg:max-w-md h-auto object-contain drop-shadow-xl transform lg:-rotate-6"
+              />
+            </div>
+
+            <div className="w-full lg:w-1/2 p-8 md:p-12 lg:p-16 flex flex-col justify-center items-start">
+
+              <h3 className="text-3xl md:text-4xl font-extrabold text-[#006699] uppercase mb-2 leading-tight">
+                MIPARK BY VAALA
+              </h3>
+
+              <span className="block font-semibold text-2xl text-[#33CCFF] mb-8">
+                ¡Ya Disponible!
               </span>
-            </span>
+
+              <div className="space-y-5 text-gray-700 text-base md:text-lg font-medium leading-relaxed mb-12">
+                <p>
+                  <span className="font-semibold text-[#006699]">MiPark</span> —también conocida como la "app de pago" de Park by Vaala— es una aplicación que permite a los usuarios pagar su estacionamiento en las zonas habilitadas sin depender de operadores.
+                </p>
+                <p>
+                  La app ofrece un sistema de pago rápido y seguro desde el celular. En ella puedes identificar la zona y la tarifa correspondiente, registrar múltiples patentes y administrar cada estacionamiento, revisando tiempos e historial de pagos.
+                </p>
+              </div>
+
+              <a
+                href="https://mipark.parkbyvaala.cl/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block bg-gradient-to-r from-[#0099CC] to-[#33CCFF] text-white font-bold uppercase py-3.5 px-10 rounded-full text-sm tracking-wider shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105 active:scale-95 text-center"
+              >
+                VER MÁS
+              </a>
+            </div>
+
           </motion.div>
 
         </div>
