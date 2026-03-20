@@ -1,12 +1,14 @@
 import React, { useState, useRef } from 'react';
-import YouTube, { YouTubePlayer } from 'react-youtube'; 
-import { QrCode, Volume2, VolumeX } from 'lucide-react'; 
+import YouTube, { YouTubePlayer } from 'react-youtube';
+import { QrCode, Volume2, VolumeX } from 'lucide-react';
 import { motion } from 'framer-motion';
-import emailjs from '@emailjs/browser'; 
+import emailjs from '@emailjs/browser';
 
 // Assets
 import GooglePlayIcon from '../assets/img/GooglePlay.png';
 import AppleStoreIcon from '../assets/img/AppleStore.png';
+import QrPlaystore from '../assets/img/qr-playstore.png';
+import QrAppstore from '../assets/img/qr-appstore.png';
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 40 },
@@ -15,11 +17,11 @@ const fadeInUp = {
 
 const DescargaApp = () => {
   // --- ESTADOS DEL FORMULARIO ---
-  const formRef = useRef<HTMLFormElement>(null); 
+  const formRef = useRef<HTMLFormElement>(null);
   const [email, setEmail] = useState('');
-  const [isSubmitted, setIsSubmitted] = useState(false); 
-  const [isSubmitting, setIsSubmitting] = useState(false); 
-  const [errorMessage, setErrorMessage] = useState(''); 
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
 
   // --- LÓGICA DEL VIDEO ---
   const playerRef = useRef<YouTubePlayer | null>(null);
@@ -27,7 +29,7 @@ const DescargaApp = () => {
 
   const onReady = (event: { target: YouTubePlayer }) => {
     playerRef.current = event.target;
-    playerRef.current.mute(); 
+    playerRef.current.mute();
     playerRef.current.playVideo();
   };
 
@@ -46,12 +48,12 @@ const DescargaApp = () => {
   // --- LÓGICA DE ENVÍO CON EMAILJS ---
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setErrorMessage(''); 
+    setErrorMessage('');
 
     // Validación simple
     if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-       setErrorMessage('Por favor ingresa un correo válido.');
-       return;
+      setErrorMessage('Por favor ingresa un correo válido.');
+      return;
     }
 
     if (!formRef.current) return;
@@ -60,16 +62,16 @@ const DescargaApp = () => {
 
     try {
       await emailjs.sendForm(
-        'service_mipark',       
-        'template_mipark', 
+        'service_mipark',
+        'template_mipark',
         formRef.current,
-        'vbRTRBoKwmCqXMj3h'     
+        'vbRTRBoKwmCqXMj3h'
       );
 
       console.log('Email enviado:', email);
       setIsSubmitted(true);
-      setEmail(''); 
-      
+      setEmail('');
+
       setTimeout(() => {
         setIsSubmitted(false);
       }, 5000);
@@ -84,7 +86,7 @@ const DescargaApp = () => {
 
   return (
     <section className="py-16 md:py-24 bg-[#EAF8FC] min-h-screen flex flex-col items-center justify-center" id="tutorial">
-      
+
       <div className="container mx-auto px-4">
 
         {/* ============================================================
@@ -92,13 +94,13 @@ const DescargaApp = () => {
             ============================================================ */}
         <div className="mb-16 md:mb-20">
           <div className="text-center mb-8">
-             <h2 className="text-2xl md:text-4xl text-[#006699] font-extrabold uppercase leading-tight tracking-tight">
-                ¿CÓMO USAR<br/>
-                <span className="text-[#33CCFF]">MIPARK?</span>
-             </h2>
+            <h2 className="text-2xl md:text-4xl text-[#006699] font-extrabold uppercase leading-tight tracking-tight">
+              ¿CÓMO USAR<br />
+              <span className="text-[#33CCFF]">MIPARK?</span>
+            </h2>
           </div>
 
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -143,30 +145,30 @@ const DescargaApp = () => {
         {/* ============================================================
             SECCIÓN BENEFICIOS Y QRs
             ============================================================ */}
-        
-        <motion.div 
-          variants={fadeInUp} 
+
+        <motion.div
+          variants={fadeInUp}
           initial="hidden"
           whileInView="visible"
           id="descarga"
           className="text-center mb-10"
         >
           <h2 className="text-2xl md:text-4xl text-[#006699] font-extrabold uppercase leading-tight tracking-tight">
-            Obtendrás muchos<br/>
+            Obtendrás muchos<br />
             <span className="text-[#33CCFF]">Beneficios próximamente</span>
           </h2>
         </motion.div>
 
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5 }}
-          
+
           className="bg-white rounded-[40px] shadow-[0_20px_50px_rgba(0,102,153,0.15)] max-w-[800px] mx-auto p-8 md:p-12 lg:p-16 relative overflow-hidden"
         >
-          
+
           <div className="flex flex-col items-center text-center">
-            
+
             <h3 className="text-xl md:text-2xl lg:text-3xl text-[#006699] font-bold leading-snug mb-10 max-w-2xl">
               Descarga la app y paga tu<br className="md:block" />
               estacionamiento de forma <span className="font-extrabold">segura,</span><br className="hidden md:block" />
@@ -177,44 +179,83 @@ const DescargaApp = () => {
             <div className="hidden md:flex flex-row gap-12 mb-6">
               {/* QR GOOGLE PLAY */}
               <div className="flex flex-col items-center">
-                <div className="relative bg-white w-44 h-44 rounded-2xl border border-gray-100 shadow-[0_4px_20px_rgba(0,0,0,0.03)] flex items-center justify-center p-4 mb-3 transition-transform hover:scale-105 duration-300">
-                   <QrCode className="w-full h-full text-gray-200 blur-[2px] opacity-80" strokeWidth={2} />
-                   <div className="absolute inset-0 flex items-center justify-center">
-                     <span className="text-gray-500 font-medium text-sm bg-white/95 px-3 py-1 rounded-lg shadow-sm border border-gray-50 whitespace-nowrap">No disponible</span>
-                   </div>
-                   <div className="absolute top-3 left-3 w-3 h-3 border-l-[3px] border-t-[3px] border-gray-200 rounded-tl-lg"></div>
-                   <div className="absolute top-3 right-3 w-3 h-3 border-r-[3px] border-t-[3px] border-gray-200 rounded-tr-lg"></div>
-                   <div className="absolute bottom-3 left-3 w-3 h-3 border-l-[3px] border-b-[3px] border-gray-200 rounded-bl-lg"></div>
-                   <div className="absolute bottom-3 right-3 w-3 h-3 border-r-[3px] border-b-[3px] border-gray-200 rounded-br-lg"></div>
-                </div>
-                <p className="text-gray-400 font-bold text-sm uppercase tracking-wider">Google Play</p>
+                <a
+                  href="https://play.google.com/store/apps/details?id=cl.parkbyvaala.flutter_park_cliente"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="relative bg-white w-44 h-44 rounded-2xl border border-gray-100 shadow-[0_4px_20px_rgba(0,0,0,0.08)] flex items-center justify-center p-4 mb-3 transition-transform hover:scale-105 duration-300 group"
+                >
+                  {/* Imagen del QR Play Store */}
+                  <img
+                    src={QrPlaystore}
+                    alt="QR Google Play"
+                    className="w-full h-full object-contain"
+                  />
+
+                  {/* Guías visuales en las esquinas */}
+                  <div className="absolute top-3 left-3 w-3 h-3 border-l-[3px] border-t-[3px] border-[#33CCFF] rounded-tl-lg opacity-50 group-hover:opacity-100 transition-opacity"></div>
+                  <div className="absolute top-3 right-3 w-3 h-3 border-r-[3px] border-t-[3px] border-[#33CCFF] rounded-tr-lg opacity-50 group-hover:opacity-100 transition-opacity"></div>
+                  <div className="absolute bottom-3 left-3 w-3 h-3 border-l-[3px] border-b-[3px] border-[#33CCFF] rounded-bl-lg opacity-50 group-hover:opacity-100 transition-opacity"></div>
+                  <div className="absolute bottom-3 right-3 w-3 h-3 border-r-[3px] border-b-[3px] border-[#33CCFF] rounded-br-lg opacity-50 group-hover:opacity-100 transition-opacity"></div>
+                </a>
+                <p className="text-[#006699] font-bold text-sm uppercase tracking-wider">Google Play</p>
               </div>
 
               {/* QR APP STORE */}
               <div className="flex flex-col items-center">
-                <div className="relative bg-white w-44 h-44 rounded-2xl border border-gray-100 shadow-[0_4px_20px_rgba(0,0,0,0.03)] flex items-center justify-center p-4 mb-3 transition-transform hover:scale-105 duration-300">
-                   <QrCode className="w-full h-full text-gray-200 blur-[2px] opacity-80" strokeWidth={2} />
-                   <div className="absolute inset-0 flex items-center justify-center">
-                     <span className="text-gray-500 font-medium text-sm bg-white/95 px-3 py-1 rounded-lg shadow-sm border border-gray-50 whitespace-nowrap">No disponible</span>
-                   </div>
-                   <div className="absolute top-3 left-3 w-3 h-3 border-l-[3px] border-t-[3px] border-gray-200 rounded-tl-lg"></div>
-                   <div className="absolute top-3 right-3 w-3 h-3 border-r-[3px] border-t-[3px] border-gray-200 rounded-tr-lg"></div>
-                   <div className="absolute bottom-3 left-3 w-3 h-3 border-l-[3px] border-b-[3px] border-gray-200 rounded-bl-lg"></div>
-                   <div className="absolute bottom-3 right-3 w-3 h-3 border-r-[3px] border-b-[3px] border-gray-200 rounded-br-lg"></div>
-                </div>
-                <p className="text-gray-400 font-bold text-sm uppercase tracking-wider">App Store</p>
+                <a
+                  href="https://apps.apple.com/cl/app/mipark/id6756939682"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="relative bg-white w-44 h-44 rounded-2xl border border-gray-100 shadow-[0_4px_20px_rgba(0,0,0,0.08)] flex items-center justify-center p-4 mb-3 transition-transform hover:scale-105 duration-300 group"
+                >
+                  {/* Imagen del QR App Store */}
+                  <img
+                    src={QrAppstore}
+                    alt="QR App Store"
+                    className="w-full h-full object-contain"
+                  />
+
+                  {/* Guías visuales en las esquinas */}
+                  <div className="absolute top-3 left-3 w-3 h-3 border-l-[3px] border-t-[3px] border-[#0099CC] rounded-tl-lg opacity-50 group-hover:opacity-100 transition-opacity"></div>
+                  <div className="absolute top-3 right-3 w-3 h-3 border-r-[3px] border-t-[3px] border-[#0099CC] rounded-tr-lg opacity-50 group-hover:opacity-100 transition-opacity"></div>
+                  <div className="absolute bottom-3 left-3 w-3 h-3 border-l-[3px] border-b-[3px] border-[#0099CC] rounded-bl-lg opacity-50 group-hover:opacity-100 transition-opacity"></div>
+                  <div className="absolute bottom-3 right-3 w-3 h-3 border-r-[3px] border-b-[3px] border-[#0099CC] rounded-br-lg opacity-50 group-hover:opacity-100 transition-opacity"></div>
+                </a>
+                <p className="text-[#006699] font-bold text-sm uppercase tracking-wider">App Store</p>
               </div>
             </div>
 
             {/* BOTONES STORES */}
             <div className="w-full mt-8 mb-16">
               <div className="flex flex-col md:flex-row justify-center items-center gap-6">
-                <button className="group relative bg-white hover:bg-gray-50 rounded-full w-64 h-16 shadow-[0_8px_20px_rgba(0,0,0,0.06)] hover:shadow-[0_10px_25px_rgba(0,0,0,0.1)] transition-all duration-300 border border-gray-100 flex items-center justify-center gap-3">
-                  <img src={GooglePlayIcon} alt="Google Play" className="h-20 w-20 object-contain" />
-                </button>
-                <button className="group relative bg-white hover:bg-gray-50 rounded-full w-64 h-16 shadow-[0_8px_20px_rgba(0,0,0,0.06)] hover:shadow-[0_10px_25px_rgba(0,0,0,0.1)] transition-all duration-300 border border-gray-100 flex items-center justify-center gap-3">
-                   <img src={AppleStoreIcon} alt="App Store" className="h-20 w-20 object-contain mb-1" />
-                </button>
+                {/* BOTÓN GOOGLE PLAY */}
+                <a
+                  href="https://play.google.com/store/apps/details?id=cl.parkbyvaala.flutter_park_cliente"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group relative bg-white hover:bg-gray-50 rounded-full w-64 h-16 shadow-[0_8px_20px_rgba(0,0,0,0.06)] hover:shadow-[0_10px_25px_rgba(0,0,0,0.1)] transition-all duration-300 border border-gray-100 flex items-center justify-center gap-3 overflow-hidden"
+                >
+                  <img
+                    src={GooglePlayIcon}
+                    alt="Disponible en Google Play"
+                    className="h-20 w-20 object-contain transition-transform duration-300 group-hover:scale-110"
+                  />
+                </a>
+
+                {/* BOTÓN APP STORE */}
+                <a
+                  href="https://apps.apple.com/cl/app/mipark/id6756939682"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group relative bg-white hover:bg-gray-50 rounded-full w-64 h-16 shadow-[0_8px_20px_rgba(0,0,0,0.06)] hover:shadow-[0_10px_25px_rgba(0,0,0,0.1)] transition-all duration-300 border border-gray-100 flex items-center justify-center gap-3 overflow-hidden"
+                >
+                  <img
+                    src={AppleStoreIcon}
+                    alt="Consíguelo en el App Store"
+                    className="h-20 w-20 object-contain mb-1 transition-transform duration-300 group-hover:scale-110"
+                  />
+                </a>
               </div>
             </div>
 
@@ -222,14 +263,14 @@ const DescargaApp = () => {
                 FORMULARIO NEWSLETTER (Funcional con EmailJS)
                 ============================================================ */}
             <div className="w-full max-w-lg mx-auto mt-4">
-              
+
 
 
               {/* Título (comentado anteriormente) */}
               <h3 className="text-2xl uppercase md:text-3xl font-extrabold text-[#006699] mb-3">
                 ¡No te quedes fuera!
               </h3>
-              
+
               <p className="text-gray-500 text-sm md:text-[15px] font-medium mb-8 leading-relaxed max-w-sm mx-auto md:max-w-none">
                 Ingresa tu correo para obtener información y acceso a sorpresas especiales.
               </p>
@@ -243,11 +284,11 @@ const DescargaApp = () => {
                     onChange={(e) => setEmail(e.target.value)}
                     disabled={isSubmitted || isSubmitting}
                     className={`w-full px-6 py-4 bg-white border rounded-full shadow-inner focus:outline-none focus:ring-4 text-gray-600 text-center placeholder-gray-400 font-medium text-base transition-all
-                      ${errorMessage 
-                        ? 'border-red-400 focus:border-red-400 focus:ring-red-100' 
+                      ${errorMessage
+                        ? 'border-red-400 focus:border-red-400 focus:ring-red-100'
                         : 'border-gray-200 focus:border-[#33CCFF] focus:ring-blue-50'
                       }`}
-                    placeholder="ejemplo@email.com" 
+                    placeholder="ejemplo@email.com"
                   />
                   {errorMessage && (
                     <p className="text-red-500 text-sm mt-2 absolute w-full text-center">
@@ -257,9 +298,9 @@ const DescargaApp = () => {
                 </div>
 
                 {isSubmitted ? (
-                   <div className="text-green-600 font-bold bg-green-50 px-8 py-3 rounded-full animate-pulse border border-green-100 flex items-center">
-                     ¡Correo registrado con éxito!
-                   </div>
+                  <div className="text-green-600 font-bold bg-green-50 px-8 py-3 rounded-full animate-pulse border border-green-100 flex items-center">
+                    ¡Correo registrado con éxito!
+                  </div>
                 ) : (
                   <button
                     type="submit"

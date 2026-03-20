@@ -5,6 +5,7 @@ import MapaInteractivo from '../components/DescargaApp';
 import ZonaMiPark from '../components/ZonaPark';
 import { motion } from 'framer-motion';
 import DescargaApp from '../components/DescargaApp';
+import InstagramSection from '../components/ui/InstagramSection'
 
 const Inicio = () => {
   const fadeInUp = {
@@ -39,6 +40,7 @@ const containerStagger = {
       <QueSomos />
       <DescargaApp />
       <ZonaMiPark />
+      <InstagramSection />
     </div>
   );
 };
