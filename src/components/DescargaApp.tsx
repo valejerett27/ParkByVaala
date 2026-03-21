@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
 import YouTube, { YouTubePlayer } from 'react-youtube';
-import { QrCode, Volume2, VolumeX } from 'lucide-react';
+import { Volume2, VolumeX } from 'lucide-react';
 import { motion } from 'framer-motion';
 import emailjs from '@emailjs/browser';
 
